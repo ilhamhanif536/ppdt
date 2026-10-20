@@ -41,14 +41,14 @@ const siteData = {
   sosial: {
     instagram: "https://instagram.com/darutthalibin",
     facebook: "",
-    youtube: "https://instagram.com/@PPDTKamal",
-    tiktok: "https://instagram.com/@darutthalibin",
+    youtube: "https://youtube.com/@PPDTKamal",
+    tiktok: "https://tiktok.com/@darutthalibin",
   },
 
   // ---------- Google Analytics 4 ----------
   // Tempel ID pengukuran GA4 di sini, contoh: "G-XXXXXXXXXX".
   // Biarkan "" untuk menonaktifkan analytics.
-  ga4Id: "",
+  ga4Id: "G-V4ZHMTRSST",
 
   // ---------- Menu navigasi utama (sudah dirampingkan) ----------
   // Halaman Prestasi, Koperasi, dan Organisasi tetap tersedia
