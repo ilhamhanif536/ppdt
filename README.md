@@ -1,101 +1,111 @@
-# Darut Thalibin Telang — Website Resmi
+# Darut Thalibin Telang — Website Resmi (v2)
 
-Website informatif statis untuk Darut Thalibin Telang, disiapkan agar mudah diunggah ke GitHub dan dibuka melalui GitHub Codespaces, lalu dideploy ke Netlify.
+Website informatif statis untuk Pondok Pesantren Darut Thalibin Telang. Dibangun tanpa framework, tanpa dependensi npm — cepat, aman, dan mudah dirawat. Deploy ke Netlify.
+
+## Yang baru di versi 2
+
+- **Desain segar modern** — putih dominan dengan aksen hijau, font Plus Jakarta Sans, komponen dirapikan menyeluruh.
+- **Pratinjau berbagi tautan** — `og-image.png` 1200×630 sehingga tampil rapi saat dibagikan ke WhatsApp/Facebook/X.
+- **Structured data (JSON-LD)** — `EducationalOrganization` + `WebSite` untuk mesin pencari.
+- **Halaman 404 kustom** dengan tombol kembali ke beranda.
+- **Menu navigasi dirampingkan** dari 9 menjadi 6 (Beranda, Profil, Pendidikan, Kegiatan, Berita, Kontak). Halaman Prestasi, Koperasi, dan Organisasi tetap tersedia melalui kartu beranda, tautan silang, dan footer.
+- **Cache busting otomatis** — CSS/JS diberi nama ber-hash (`site.a1b2c3d4.css`); perubahan tampilan selalu langsung terlihat tanpa masalah cache lama.
+- **Peta lokasi** di halaman Kontak (embed Google Maps tanpa API key).
+- **Tombol WhatsApp mengambang** — muncul otomatis begitu nomor WA diisi pada data pusat.
+- **Slot Google Analytics 4** — aktif begitu ID pengukuran diisi.
+- **Data pusat satu file** — kontak, organisasi, jadwal, pengumuman, media sosial diatur dari satu tempat.
+- **Logo dibersihkan** dari artefak garis tepi & pojok hitam.
 
 ## Identitas lembaga
+
 - Nama: **Darut Thalibin Telang**
-- Identitas formal: **SK KEMENKUMHAM RI No. AHU-0015579.AH.04.Tahun 2018**
+- SK KEMENKUMHAM RI: **AHU-0015579.AH.04.Tahun 2018**
 - NSP: **510235260222**
 
-Nomor di atas mengikuti informasi yang diberikan pengelola. Cocokkan kembali ejaan dan formatnya dengan dokumen resmi sebelum publikasi final.
-
 ## Struktur proyek
+
 ```text
 .
 ├── public/
-│   └── favicon.svg
+│   ├── favicon.svg
+│   └── images/            # logo, og-image, ikon (boleh diganti kapan saja)
 ├── scripts/
-│   └── build.mjs
+│   └── build.mjs          # merakit halaman dari partials + data
 ├── src/
+│   ├── _data/
+│   │   └── site-data.mjs  # ⭐ DATA PUSAT — edit file ini
+│   ├── _includes/
+│   │   ├── head.html      # <head> bersama (SEO, OG, GA4)
+│   │   ├── header.html    # header + navigasi bersama
+│   │   └── footer.html    # footer bersama + tombol WA
 │   ├── assets/
-│   │   ├── site.css
-│   │   └── site.js
-│   ├── berita/index.html
-│   ├── kegiatan/index.html
-│   ├── kontak/index.html
-│   ├── koperasi/index.html
-│   ├── pendidikan/index.html
-│   ├── prestasi/index.html
-│   ├── profil/index.html
-│   └── index.html
-├── netlify.toml
-├── package.json
-└── README.md
+│   │   ├── site.css       # seluruh gaya visual
+│   │   └── site.js        # menu mobile, tahun otomatis
+│   ├── 404/index.html     # halaman 404
+│   ├── profil/index.html  # konten per halaman (tanpa <html> wrapper)
+│   └── ...                # pendidikan, kegiatan, prestasi, berita,
+│                          # koperasi, organisasi, kontak, index.html
+├── netlify.toml           # build + header keamanan & cache
+└── package.json
 ```
 
-## Membuka di GitHub Codespaces
-1. Buat repository GitHub baru.
-2. Unggah isi ZIP ini ke repository (bukan folder ZIP-nya).
-3. Buka repository lalu pilih **Code → Codespaces → Create codespace on main**.
-4. Di terminal Codespaces, jalankan:
-   ```bash
-   npm run build
-   ```
-5. Folder hasil build bernama `dist/`. Untuk preview, jalankan server statis, misalnya:
-   ```bash
-   npx --yes serve dist
-   ```
-   Jika diminta, buka port yang ditampilkan di panel **Ports**.
+### Cara kerja build
 
-Proyek ini menggunakan Node.js 18+ dan tidak memerlukan dependency npm tambahan untuk build.
+1. Setiap halaman di `src/` berisi **komentar meta JSON** (title, description) lalu konten `<main>` saja.
+2. `build.mjs` merakitnya dengan partial `head`, `header`, dan `footer`.
+3. Token `{{ORGANISASI}}`, `{{JADWAL}}`, `{{KONTAK_ITEMS}}`, `{{MAP}}`, `{{PENGUMUMAN}}` diisi otomatis dari `site-data.mjs` — bagian yang datanya kosong **otomatis disembunyikan**.
+4. CSS/JS diberi fingerprint hash, `sitemap.xml` dan `robots.txt` dibuat dari `SITE_URL`.
+
+## Mengisi data resmi (penting)
+
+Buka **`src/_data/site-data.mjs`** dan isi:
+
+| Kunci | Fungsi |
+|---|---|
+| `kontak.whatsapp` | Tombol WA mengambang + item kontak WA |
+| `kontak.telepon` | Item kontak telepon |
+| `kontak.email` | Item kontak email |
+| `kontak.petaQuery` | Titik peta Google Maps di halaman Kontak |
+| `sosial.instagram` dst. | Tautan media sosial di footer |
+| `ga4Id` | Google Analytics 4 (contoh `G-XXXXXXXXXX`) |
+| `organisasi[].anggota[].nama` | Nama pengurus di halaman Organisasi |
+| `jadwalKajian` | Kartu jadwal di halaman Kegiatan |
+| `pengumuman` | Strip pengumuman di beranda |
+
+Setelah mengedit, jalankan `npm run build` (lokal/Codespaces) atau cukup push — Netlify membangun ulang otomatis.
+
+## Menjalankan secara lokal / Codespaces
+
+```bash
+npm run build            # hasil di dist/
+npx --yes serve dist     # preview di port yang tampil
+```
+
+Node.js 18+. Tanpa dependensi npm tambahan.
 
 ## Deploy ke Netlify
+
 1. Push repository ke GitHub.
-2. Di Netlify pilih **Add new site → Import an existing project**, lalu hubungkan repository.
-3. Build command: `npm run build`
-4. Publish directory: `dist`
-5. Tambahkan custom domain melalui pengaturan domain Netlify dan ikuti instruksi DNS yang tampil untuk domain Anda.
-6. Pilih satu versi domain kanonis, misalnya `https://domain-anda.id` atau `https://www.domain-anda.id`.
-7. Atur environment variable Netlify:
-   - Key: `SITE_URL`
-   - Value: domain kanonis, contoh `https://domain-anda.id`
-8. Deploy ulang dan periksa:
-   - `/sitemap.xml`
-   - `/robots.txt`
-   - canonical URL di source HTML halaman.
+2. Netlify → **Add new site → Import an existing project** → hubungkan repository.
+3. Build command `npm run build`, publish directory `dist` (sudah terbaca dari `netlify.toml`).
+4. **Wajib**: atur environment variable `SITE_URL` = domain kanonis, contoh `https://darutthalibin.web.id`.
+5. Deploy, lalu periksa `/sitemap.xml`, `/robots.txt`, dan canonical pada source HTML.
 
-Jangan kirim sitemap ke Google sebelum domain kanonis benar dan situs dapat diakses melalui HTTPS.
+## SEO & Google Search Console
 
-## SEO dan Google Search Console
-- Setiap halaman memiliki title, meta description, canonical URL, dan metadata Open Graph.
-- Sitemap dan robots.txt dibuat saat build berdasarkan `SITE_URL`.
-- Setelah domain aktif, verifikasi kepemilikan di Google Search Console, kirim sitemap, lalu gunakan URL Inspection untuk meminta pengindeksan halaman utama dan halaman prioritas.
+- Setiap halaman memiliki title, meta description, canonical, Open Graph + Twitter Card, dan JSON-LD.
+- Verifikasi kepemilikan di Search Console setelah domain aktif, kirim sitemap, lalu gunakan URL Inspection untuk pengindeksan awal.
+- `og-image.png` (1200×630) dapat diganti kapan saja dengan nama file yang sama.
+
+## Catatan konten
+
+- Nama pengurus putra/putri mengikuti data yang diberikan pengelola; struktur yayasan dan pengasuh akan tampil otomatis setelah nama diisi di `site-data.mjs`.
+- Ganti `public/images/logo-pondok.png` dengan versi resolusi lebih tinggi bila tersedia (nama file sama).
+- Pastikan setiap nama, foto, dan data santri memiliki izin publikasi yang sesuai.
 - Pengindeksan dan peringkat Google tidak dapat dijamin.
 
-## Konten yang masih perlu diverifikasi
-Website ini sengaja tidak mengarang:
-- sejarah resmi, tahun berdiri, dan pendiri;
-- rumusan visi-misi;
-- nama pengasuh dan struktur pengurus;
-- jadwal serta rincian program pendidikan;
-- data prestasi dan berita aktual;
-- nomor telepon, WhatsApp, email, dan tautan media sosial;
-- foto asli bangunan, pengasuh, santri, dan kegiatan.
-
-Ganti ilustrasi dan logo sementara dengan logo resmi serta foto yang diizinkan untuk dipublikasikan. Pastikan setiap nama, foto, dan informasi santri mendapat persetujuan yang sesuai.
-
-## Fondasi pengembangan selanjutnya
-- Website publik tetap statis agar cepat, sederhana, dan mudah dirawat.
-- Halaman `/koperasi/` adalah fondasi informasi koperasi; katalog produk dapat ditambahkan setelah data produk dan status layanan dikonfirmasi.
-- Integrasi Google Apps Script (GAS) harus menggunakan endpoint publik yang hanya mengembalikan data yang boleh dilihat umum. Jangan menaruh token, kredensial, data pribadi, atau akses administrasi dalam JavaScript publik.
-- Sistem administrasi internal sebaiknya dipisahkan dari website informasi publik dan menerapkan autentikasi/otorisasi sesuai peran.
-
 ## Identitas visual
-Warna utama: `#388e6e`. Logo buku dan bintang saat ini adalah placeholder, bukan logo resmi lembaga.
 
-
-## Pembaruan konten
-- Logo resmi berada di `public/images/logo-pondok.png`. Ganti file ini jika ada versi logo resmi dengan kualitas lebih tinggi, menggunakan nama file yang sama.
-- Visi dan misi tersedia pada `src/profil/index.html`.
-- Struktur organisasi tersedia pada `src/organisasi/index.html`. Nama pengasuh dan jajaran yayasan sengaja belum diisi.
-- Jadwal kajian pada `src/kegiatan/index.html` ditranskripsikan dari materi sosialisasi yang diberikan dan perlu dikonfirmasi sebelum publikasi.
+- Hijau utama `#2E9E6B`, hijau pekat `#0E3D2E`, emas `#C9A75B`.
+- Font: Plus Jakarta Sans (Google Fonts).
+- Ikon: SVG inline agar tetap tanpa dependensi.

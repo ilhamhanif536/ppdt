@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://replace-with-your-domain.invalid/sitemap.xml
+
+Sitemap: https://darutthalibin.web.id//sitemap.xml
