@@ -50,12 +50,20 @@ const siteData = {
   // Biarkan "" untuk menonaktifkan analytics.
   ga4Id: "G-V4ZHMTRSST",
 
-  // ---------- Menu navigasi utama (sudah dirampingkan) ----------
-  // Halaman Prestasi, Koperasi, dan Organisasi tetap tersedia
-  // melalui kartu beranda, tautan silang, dan footer.
+  // ---------- Menu navigasi utama (dengan grup dropdown "Tentang") ----------
+  // Item tanpa "children" tampil sebagai tautan biasa; item dengan "children"
+  // tampil sebagai dropdown di desktop dan grup yang bisa dibuka di mobile.
   menuUtama: [
     { label: "Beranda", path: "/" },
-    { label: "Profil", path: "/profil/" },
+    {
+      label: "Tentang",
+      path: "/profil/",
+      children: [
+        { label: "Profil Pondok", path: "/profil/", desc: "Gambaran umum, visi-misi, dan identitas resmi" },
+        { label: "Struktur Organisasi", path: "/organisasi/", desc: "Yayasan, pengasuh, dan pengurus putra-putri" },
+        { label: "Prestasi Santri", path: "/prestasi/", desc: "Arsip pencapaian santri terverifikasi" },
+      ],
+    },
     { label: "Pendidikan", path: "/pendidikan/" },
     { label: "Kegiatan", path: "/kegiatan/" },
     { label: "Berita", path: "/berita/" },
@@ -106,12 +114,6 @@ const siteData = {
     { hari: "Setiap Hari", waktu: "Ba'da Maghrib", materi: "Kajian kitab kuning bersama" },
     { hari: "Sabtu", waktu: "Ba'da Isya", materi: "Tahsin & tajwid" },
     { hari: "Ahad", waktu: "Ba'da Subuh", materi: "Kajian tematik keislaman" },
-  ],
-
-  // ---------- Pengumuman berjalan di beranda ----------
-  pengumuman: [
-    "Website resmi Darut Thalibin Telang resmi mengudara.",
-    "Informasi penerimaan santri baru akan diumumkan melalui halaman Berita.",
   ],
 };
 

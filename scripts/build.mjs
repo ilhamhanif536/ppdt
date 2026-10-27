@@ -30,7 +30,7 @@ const siteUrl = (process.env.SITE_URL || process.env.URL || process.env.DEPLOY_P
 if (!siteUrl) {
   console.warn("WARNING: SITE_URL belum diatur. Canonical memakai placeholder — wajib diisi di Netlify sebelum produksi.");
 }
-const SITE_URL = siteUrl || "https://darutthalibin.web.id/";
+const SITE_URL = siteUrl || "https://darutthalibin.web.id";
 
 /* ------------------------------ partials ---------------------------------- */
 const partial = async (name) => readFile(path.join(src, "_includes", name), "utf8");
@@ -42,8 +42,21 @@ const [headTpl, headerTpl, footerTpl] = await Promise.all([
 function renderNav(currentPath) {
   return siteData.menuUtama
     .map((item) => {
-      const isCurrent = item.path === currentPath;
-      return `<a href="${item.path}"${isCurrent ? ' aria-current="page"' : ""}>${esc(item.label)}</a>`;
+      const children = item.children || [];
+      if (!children.length) {
+        const isCurrent = item.path === currentPath;
+        return `<a class="nav-link" href="${item.path}"${isCurrent ? ' aria-current="page"' : ""}>${esc(item.label)}</a>`;
+      }
+      const isCurrentGroup =
+        item.path === currentPath || children.some((c) => c.path === currentPath);
+      const caret = `<svg class="caret" viewBox="0 0 24 24" width="14" height="14" fill="none" aria-hidden="true"><path d="m6 9 6 6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+      const childLinks = children
+        .map((c) => {
+          const cur = c.path === currentPath;
+          return `<a href="${c.path}"${cur ? ' aria-current="page"' : ""}><strong>${esc(c.label)}</strong>${c.desc ? `<span>${esc(c.desc)}</span>` : ""}</a>`;
+        })
+        .join("");
+      return `<div class="nav-item has-sub${isCurrentGroup ? " current" : ""}"><button class="nav-link sub-toggle" type="button" aria-expanded="false" aria-haspopup="true">${esc(item.label)}${caret}</button><div class="sub-menu">${childLinks}</div></div>`;
     })
     .join("");
 }
@@ -63,14 +76,6 @@ function renderSocialLinks() {
         `<a href="${esc(url)}" target="_blank" rel="noopener" aria-label="${label} resmi ${esc(siteData.namaPondok)}"><span>${label}</span></a>`
     )
     .join("");
-}
-
-function renderPengumuman() {
-  const list = (siteData.pengumuman || []).filter(Boolean);
-  if (!list.length) return "";
-  return `<div class="notice-bar"><div class="container notice-inner"><span class="notice-badge">Pengumuman</span><div class="notice-track">${list
-    .map((t) => `<span class="notice-item">${esc(t)}</span>`)
-    .join("")}</div></div></div>`;
 }
 
 function renderOrgSections() {
@@ -223,7 +228,6 @@ function parseMeta(html, file) {
 }
 
 const RENDERERS = {
-  PENGUMUMAN: renderPengumuman,
   ORGANISASI: renderOrgSections,
   JADWAL: renderJadwal,
   KONTAK_ITEMS: renderKontakItems,
