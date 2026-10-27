@@ -1,0 +1,53 @@
+<!--
+{
+  "title": "Pembaca Majmu' — Darut Thalibin Telang",
+  "description": "Pembaca digital kumpulan bacaan majmu' Pondok Pesantren Darut Thalibin Telang: surah pilihan, tahlil, dzikir, doa setelah shalat, dan panduan shalat Dhuha — fokus pada teks Arab, Latin, dan terjemah."
+}
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Amiri+Quran&family=Scheherazade+New:wght@400;700&display=swap">
+<link rel="stylesheet" href="/assets/majmu.css?v=20261027">
+
+<section class="page-hero"><div class="container">
+  <div class="breadcrumb"><a href="/">Beranda</a> / <a href="/majmu/">Majmu' Digital</a> / Pembaca</div>
+  <span class="eyebrow">Majmu' Digital</span>
+  <h1>Pembaca Majmu'</h1>
+  <p>Atur tampilan Latin dan terjemah serta ukuran teks Arab sesuai kenyamanan membaca Anda.</p>
+</div></section>
+
+<section class="section" style="padding-top:0">
+  <div class="mj-reader" data-majmu-app>
+    <div class="mj-toolbar">
+      <div class="container mj-toolbar-inner">
+        <a class="mj-back" href="/majmu/">
+          <svg viewBox="0 0 24 24" width="15" height="15" fill="none" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Daftar isi
+        </a>
+        <span class="mj-toolbar-title" data-toolbar-title>Majmu'</span>
+        <button class="mj-btn" type="button" data-toggle-latin aria-pressed="true">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M4 7h16M4 12h10M4 17h7" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+          Latin
+        </button>
+        <button class="mj-btn" type="button" data-toggle-terjemah aria-pressed="true">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 18V6m0 12L3 16m2 2 2-2M9 6h10m-10 6h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Terjemah
+        </button>
+        <div class="mj-size-group" role="group" aria-label="Ukuran teks Arab">
+          <button type="button" data-size="kecil" aria-label="Teks Arab kecil">A-</button>
+          <button type="button" data-size="sedang" aria-label="Teks Arab sedang">A</button>
+          <button type="button" data-size="besar" aria-label="Teks Arab besar">A+</button>
+        </div>
+        <button class="mj-btn" type="button" data-refresh data-only-surah>
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7M20 5v6h-6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          Segarkan
+        </button>
+      </div>
+    </div>
+    <div class="container">
+      <div data-isi></div>
+    </div>
+  </div>
+</section>
+
+<script src="/assets/majmu.js?v=20261027" defer></script>

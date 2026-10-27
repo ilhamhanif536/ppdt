@@ -28,9 +28,14 @@ Website informatif statis untuk Pondok Pesantren Darut Thalibin Telang. Dibangun
 .
 ├── public/
 │   ├── favicon.svg
+│   ├── data/majmu/        # data teks Majmu' (tahlil, dzikir, dhuha, ratib) + SUMBER-DATA.md
 │   └── images/            # logo, og-image, ikon (boleh diganti kapan saja)
 ├── scripts/
-│   └── build.mjs          # merakit halaman dari partials + data
+│   ├── build.mjs          # merakit halaman dari partials + data
+│   ├── fetch-majmu-data.mjs # pembaru data doa/dzikir dari EQuran.id → public/data/majmu
+│   ├── fetch-ratib-haddad.mjs # penarik & parser Ratib al-Haddad (Quran NU Online)
+│   ├── verify.mjs         # verifikasi statis build & data (35 cek)
+│   └── uji-render.mjs     # uji renderer pembaca tanpa browser (DOM-stub)
 ├── src/
 │   ├── _data/
 │   │   └── site-data.mjs  # ⭐ DATA PUSAT — edit file ini
@@ -40,7 +45,10 @@ Website informatif statis untuk Pondok Pesantren Darut Thalibin Telang. Dibangun
 │   │   └── footer.html    # footer bersama + tombol WA
 │   ├── assets/
 │   │   ├── site.css       # seluruh gaya visual
-│   │   └── site.js        # menu mobile, tahun otomatis
+│   │   ├── site.js        # menu mobile, tahun otomatis
+│   │   ├── majmu.css      # gaya khusus bagian Majmu'
+│   │   └── majmu.js       # pembaca Majmu' (fetch, cache, render teks)
+│   ├── majmu/             # ⭐ Majmu' Digital (/majmu/ dan /majmu/baca/)
 │   ├── 404/index.html     # halaman 404
 │   ├── profil/index.html  # konten per halaman (tanpa <html> wrapper)
 │   └── ...                # pendidikan, kegiatan, prestasi, berita,
@@ -54,7 +62,21 @@ Website informatif statis untuk Pondok Pesantren Darut Thalibin Telang. Dibangun
 1. Setiap halaman di `src/` berisi **komentar meta JSON** (title, description) lalu konten `<main>` saja.
 2. `build.mjs` merakitnya dengan partial `head`, `header`, dan `footer`.
 3. Token `{{ORGANISASI}}`, `{{JADWAL}}`, `{{KONTAK_ITEMS}}`, `{{MAP}}`, `{{PENGUMUMAN}}` diisi otomatis dari `site-data.mjs` — bagian yang datanya kosong **otomatis disembunyikan**.
-4. CSS/JS diberi fingerprint hash, `sitemap.xml` dan `robots.txt` dibuat dari `SITE_URL`.
+4. CSS/JS diberi fingerprint hash (termasuk `majmu.css`/`majmu.js`), `sitemap.xml` dan `robots.txt` dibuat dari `SITE_URL`.
+
+## Bagian Majmu' Digital (`/majmu/`)
+
+Kumpulan bacaan kegiatan pondok: **QS Al-Kahfi, Yasin, Ar-Rahman, Al-Waqiah, Al-Mulk** (teks Arab, Latin, dan terjemah — tanpa audio agar tetap ringan), **tahlil & doa arwah**, **dzikir dan doa seputar shalat**, **panduan shalat Dhuha**, dan **Ratib al-Haddad** (status `draft_tashih`, menunggu tashih pengurus). Maulid Ad-Diba' menyusul setelah transkripsi dan tashih pengurus.
+
+- **Teks surah:** diambil langsung dari [EQuran.id API v2](https://equran.id/apidev/v2) (gratis, tanpa API key, sumber Kemenag RI) saat halaman dibuka. Field audio pada respons dibuang sebelum disimpan di `localStorage` perangkat — kunjungan berikutnya tetap terbuka tanpa koneksi dengan jejak penyimpanan yang kecil. Tombol **Segarkan** mengambil versi terbaru.
+- **Tahlil:** dataset JSON berlisensi MIT dari [hirumisann/Data-Islamic-Json](https://github.com/hirumisann/Data-Islamic-Json), dibundel di `public/data/majmu/tahlil.json`.
+- **Dzikir:** dibuat otomatis dari EQuran.id Doa API melalui `npm run data:majmu` (hanya menulis ulang `dzikir-shalat.json`).
+- **Dhuha:** `dhuha.json` dikurasi manual dan mendukung **beberapa versi doa** sekaligus (`doaList`), masing-masing dengan status `terverifikasi` atau `draft_tashih` untuk alur tashih pengurus. Skrip otomatis tidak menimpa file ini.
+- **Ratib al-Haddad:** ditarik otomatis dari [Quran NU Online](https://quran.nu.or.id/wirid/ratib/ratib-al-haddad) melalui `npm run data:ratib` (parser HTML, situs sumber tanpa API publik) menjadi `ratib-haddad.json`: 43 bacaan dalam 2 bagian, 20 di antaranya ditandai dibaca 3×, lengkap Arab/Latin/terjemah dan atribusi naskah acuan. Status berkas `draft_tashih` sampai pengurus menashihnya.
+- **Cara mengubah isi/struktur bacaan** dirinci di `docs/PANDUAN-EDIT-KONTEN.md` (menambah versi doa, menyusun ulang tahlil, mengganti surah, dan sebagainya — semuanya cukup lewat edit data).
+- Preferensi tampilan (Latin, terjemah, ukuran teks Arab) dan penanda bacaan tersimpan di perangkat pengguna.
+- Aset `majmu.css`/`majmu.js` juga di-fingerprint oleh `build.mjs`, jadi perubahan selalu ter-live tanpa masalah cache.
+- **Akses lewat menu navigasi utama**, setara halaman Pendidikan/Kegiatan: item `Majmu'` ditambahkan di `menuUtama` (`site-data.mjs`), sehingga otomatis muncul di nav desktop dan menu garis tiga pada HP. Beranda sengaja tidak diubah; penanda menu tetap menyala saat pengunjung berada di halaman turunan `/majmu/baca/`.
 
 ## Mengisi data resmi (penting)
 
@@ -78,6 +100,8 @@ Setelah mengedit, jalankan `npm run build` (lokal/Codespaces) atau cukup push �
 
 ```bash
 npm run build            # hasil di dist/
+node scripts/verify.mjs  # 35 cek statis: struktur, data, rute, aturan tanpa audio
+node scripts/uji-render.mjs # uji output renderer memakai bundle asli (tanpa browser)
 npx --yes serve dist     # preview di port yang tampil
 ```
 

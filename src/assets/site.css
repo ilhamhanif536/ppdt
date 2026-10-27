@@ -353,6 +353,12 @@ a.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color
 }
 
 /* ---------- Responsif (header / hero / stats / footer) ---------- */
+/* Navigasi 7 item: sedikit dirampingkan di layar menengah sebelum berubah ke hamburger (≤1020px) */
+@media (max-width:1180px){
+  .nav-wrap{gap:14px}
+  .nav-link{padding:9px 11px;font-size:.88rem}
+  .nav-cta{padding:11px 18px;font-size:.9rem}
+}
 @media (max-width:1020px){
   .hero-grid{grid-template-columns:1fr;gap:44px;padding:64px 0 72px}
   .hero-copy{text-align:left}

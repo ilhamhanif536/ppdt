@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gambaran Besar — Majmu' Digital Darut Thalibin Telang</title>
+<style>
+  :root{
+    --green:#2E9E6B; --green-600:#27895C; --deep:#0E3D2E; --ink:#0A2E23;
+    --gold:#C9A75B; --gold-deep:#A8853B; --gold-tint:#FBF5E6;
+    --tint:#EDF6F1; --tint-2:#F6FBF8; --muted:#5B6B62; --line:#E3ECE6;
+    --shadow:0 6px 20px rgba(14,61,46,.10),0 2px 6px rgba(14,61,46,.06);
+  }
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    color:#1F332B;background:#F4F8F5;line-height:1.7;padding:0 0 70px;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 24px}
+  code,pre,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+
+  /* ---------- Hero ---------- */
+  header.hero{
+    background:radial-gradient(680px 320px at 92% -30%,rgba(46,158,107,.5),transparent 62%),
+               radial-gradient(460px 280px at -8% 120%,rgba(201,167,91,.32),transparent 60%),
+               linear-gradient(150deg,var(--deep),var(--ink));
+    color:#EAF3EE;padding:58px 0 52px;margin-bottom:44px;
+  }
+  header.hero .kicker{display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gold);background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.16);padding:7px 15px;border-radius:999px;margin-bottom:18px}
+  header.hero h1{color:#fff;font-size:clamp(1.7rem,3.4vw,2.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.2;margin-bottom:12px}
+  header.hero p{color:#C4D9CD;max-width:66ch;font-size:1.02rem}
+  header.hero .ringkas{margin-top:22px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);
+    border-radius:16px;padding:18px 22px;font-size:.97rem}
+  header.hero .ringkas strong{color:#fff}
+
+  /* ---------- Section ---------- */
+  section{margin-bottom:46px}
+  .sec-head{margin-bottom:22px}
+  .sec-head .no{display:inline-grid;place-items:center;width:34px;height:34px;border-radius:10px;
+    background:var(--deep);color:#fff;font-weight:800;margin-right:10px;vertical-align:middle}
+  .sec-head h2{display:inline;vertical-align:middle;font-size:1.35rem;font-weight:800;color:var(--ink);letter-spacing:-.01em}
+  .sec-head p{color:var(--muted);margin-top:8px;font-size:.95rem}
+
+  /* ---------- Cards ---------- */
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}
+  .card h3{font-size:1rem;color:var(--deep);margin-bottom:8px;font-weight:800}
+  .card p,.card li{font-size:.9rem;color:#3C5146}
+  .card .ico{width:42px;height:42px;border-radius:12px;background:var(--tint);display:grid;place-items:center;
+    font-size:1.25rem;margin-bottom:12px}
+  .card.gold{background:var(--gold-tint);border-color:#EFE3C2}
+
+  /* ---------- Diagram lapisan ---------- */
+  .layer{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 22px;box-shadow:var(--shadow);position:relative}
+  .layer + .layer{margin-top:0}
+  .layer-tag{font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--green-600);margin-bottom:6px}
+  .layer h3{font-size:1.05rem;color:var(--deep);margin-bottom:10px}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chip{font-size:.8rem;font-weight:700;background:var(--tint);color:#2B4237;border:1px solid #D5E9DD;
+    padding:6px 13px;border-radius:999px}
+  .chip.gold{background:var(--gold-tint);border-color:#EFE3C2;color:var(--gold-deep)}
+  .arrow-v{text-align:center;color:var(--green);font-size:1.5rem;font-weight:800;line-height:1;margin:6px 0}
+  .arrow-v small{display:block;font-size:.72rem;color:var(--muted);font-weight:600}
+  .arch-note{margin-top:14px;background:var(--tint-2);border:1px dashed #BBD9C8;border-radius:12px;
+    padding:14px 18px;font-size:.88rem;color:#33493E}
+  .arch-note strong{color:var(--deep)}
+
+  /* ---------- Flow steps ---------- */
+  .flow{background:#fff;border:1px solid var(--line);border-radius:16px;padding:24px;box-shadow:var(--shadow)}
+  .flow-title{display:flex;align-items:center;gap:10px;font-weight:800;color:var(--deep);font-size:1.02rem;margin-bottom:16px}
+  .flow-title .badge{font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:999px}
+  .badge.a{background:var(--tint);color:var(--green-600);border:1px solid #BBD9C8}
+  .badge.b{background:var(--gold-tint);color:var(--gold-deep);border:1px solid #EFE3C2}
+  ol.steps{list-style:none;counter-reset:s;display:flex;flex-direction:column;gap:0}
+  ol.steps li{counter-increment:s;position:relative;padding:0 0 18px 46px}
+  ol.steps li:last-child{padding-bottom:0}
+  ol.steps li::before{content:counter(s);position:absolute;left:0;top:0;width:30px;height:30px;border-radius:50%;
+    background:var(--green);color:#fff;font-weight:800;font-size:.85rem;display:grid;place-items:center}
+  ol.steps li::after{content:"";position:absolute;left:14px;top:32px;bottom:0;width:2px;background:var(--line)}
+  ol.steps li:last-child::after{display:none}
+  ol.steps li strong{color:var(--ink)}
+  ol.steps li p{font-size:.88rem;color:var(--muted);margin-top:2px}
+  .branch{margin:6px 0 6px 0;border-left:3px solid var(--gold);background:var(--gold-tint);
+    border-radius:0 12px 12px 0;padding:12px 16px;font-size:.86rem;color:#5C4A22}
+  .branch strong{color:var(--gold-deep)}
+
+  /* ---------- User journey horizontal ---------- */
+  .journey{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch}
+  .jstep{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 14px;text-align:center;position:relative}
+  .jstep .n{width:32px;height:32px;margin:0 auto 10px;border-radius:50%;background:var(--deep);color:#fff;
+    font-weight:800;display:grid;place-items:center;font-size:.85rem}
+  .jstep strong{display:block;font-size:.88rem;color:var(--deep);margin-bottom:4px}
+  .jstep span{font-size:.78rem;color:var(--muted)}
+  .jstep:not(:last-child)::after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);
+    color:var(--green);font-weight:800;font-size:1.2rem;z-index:1}
+
+  /* ---------- Tree ---------- */
+  pre.tree{background:var(--deep);color:#DCEBE2;border-radius:16px;padding:24px 26px;font-size:.84rem;
+    line-height:1.75;overflow-x:auto;box-shadow:var(--shadow)}
+  pre.tree .dir{color:#8FD8B4;font-weight:700}
+  pre.tree .new{color:var(--gold);font-weight:700}
+  pre.tree .cmt{color:#8AA798;font-style:italic}
+
+  /* ---------- Pipeline ---------- */
+  .pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+  .pstep{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px;position:relative;box-shadow:var(--shadow)}
+  .pstep .k{font-size:.72rem;font-weight:800;color:var(--green-600);letter-spacing:.08em;text-transform:uppercase}
+  .pstep strong{display:block;color:var(--deep);font-size:.92rem;margin:6px 0 4px}
+  .pstep span{font-size:.8rem;color:var(--muted)}
+  .pstep:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);
+    color:var(--green);font-weight:800;font-size:1.2rem;z-index:1}
+
+  /* ---------- Status ---------- */
+  .status{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+  .status .done{border-left:4px solid var(--green)}
+  .status .next{border-left:4px solid var(--gold)}
+  .status ul{list-style:none;display:flex;flex-direction:column;gap:9px;margin-top:10px}
+  .status li{font-size:.88rem;padding-left:26px;position:relative}
+  .status .done li::before{content:"✓";position:absolute;left:0;color:var(--green);font-weight:800}
+  .status .next li::before{content:"◷";position:absolute;left:0;color:var(--gold-deep);font-weight:800}
+
+  /* ---------- Glosarium ---------- */
+  .glos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .glos .g{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .glos .g strong{color:var(--deep);font-size:.88rem}
+  .glos .g p{font-size:.83rem;color:var(--muted);margin-top:3px}
+
+  footer{text-align:center;color:var(--muted);font-size:.82rem;margin-top:50px}
+
+  @media (max-width:860px){
+    .grid3,.grid2,.status,.glos{grid-template-columns:1fr}
+    .journey{grid-template-columns:1fr;gap:12px}
+    .jstep:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-14px;transform:translateX(50%)}
+    .pipeline{grid-template-columns:1fr}
+    .pstep:not(:last-child)::after{content:"↓";right:50%;top:auto;bottom:-13px;transform:translateX(50%)}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="kicker">Dokumen Gambaran · Oktober 2026</span>
+    <h1>Majmu' Digital — Alur &amp; Cara Kerja</h1>
+    <p>Penjelasan visual tanpa istilah teknis yang rumit: bagaimana bagian Majmu' pada website Pondok Pesantren Darut Thalibin Telang disusun, dari pengunjung membuka halaman hingga teks bacaan muncul di layar — tanpa fitur audio agar tetap ringan.</p>
+    <div class="ringkas">
+      <strong>Inti satu kalimat:</strong> Majmu' Digital adalah halaman tambahan di website pondok yang menampilkan bacaan rutin — <strong>tanpa server khusus, tanpa biaya API</strong>, dan tetap bisa dibuka kembali meski internet mati, karena teksnya tersimpan otomatis di perangkat pengunjung.
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- 1. TIGA PRINSIP -->
+<section>
+  <div class="sec-head"><span class="no">1</span><h2>Tiga prinsip dasar</h2>
+    <p>Keputusan teknis apa pun mengacu pada tiga prinsip ini.</p></div>
+  <div class="grid3">
+    <div class="card">
+      <div class="ico">🧩</div>
+      <h3>Menyatu dengan website yang ada</h3>
+      <p>Bukan aplikasi terpisah. Majmu' cukup menjadi alamat <code>/majmu/</code> di repo <code>ppdt</code>, memakai tema hijau, sistem build, dan deploy Netlify yang sama. Tidak ada teknologi baru yang harus dipelihara pengurus.</p>
+    </div>
+    <div class="card">
+      <div class="ico">📚</div>
+      <h3>Memakai sumber data terbuka</h3>
+      <p>Teks Al-Qur'an diambil dari EQuran.id (data Kemenag RI, gratis tanpa API key). Tahlil memakai dataset berlisensi MIT yang boleh dipakai ulang, dengan kredit sumber dicantumkan di setiap halaman.</p>
+    </div>
+    <div class="card">
+      <div class="ico">📴</div>
+      <h3>Ringan &amp; ramah offline</h3>
+      <p>Sekali surah dibuka, teksnya tersimpan di perangkat. Kunjungan berikutnya langsung terbuka tanpa internet — penting karena koneksi di lingkungan pondok tidak selalu stabil.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 2. ARSITEKTUR -->
+<section>
+  <div class="sec-head"><span class="no">2</span><h2>Peta arsitektur: tiga lapisan</h2>
+    <p>Siapa berbicara dengan siapa, dan di mana data tinggal.</p></div>
+
+  <div class="layer">
+    <div class="layer-tag">Lapisan 1 · Perangkat pengunjung</div>
+    <h3>Browser di HP / laptop santri</h3>
+    <div class="chips">
+      <span class="chip">Tampilan halaman</span>
+      <span class="chip">Pengatur tampilan: Latin, terjemah, ukuran teks</span>
+      <span class="chip">Penyimpanan lokal (localStorage): cache teks, preferensi, penanda bacaan</span>
+    </div>
+  </div>
+  <div class="arrow-v">↑↓<small>meminta halaman &amp; data</small></div>
+  <div class="layer">
+    <div class="layer-tag">Lapisan 2 · Website pondok (hosting Netlify, file statis)</div>
+    <h3>Halaman /majmu/ + berkas data milik sendiri</h3>
+    <div class="chips">
+      <span class="chip">Daftar isi &amp; halaman pembaca</span>
+      <span class="chip">tahlil.json (44 bacaan)</span>
+      <span class="chip">dzikir-shalat.json (13 doa)</span>
+      <span class="chip">dhuha.json</span>
+      <span class="chip">CSS &amp; JS ber-fingerprint</span>
+    </div>
+  </div>
+  <div class="arrow-v">↑↓<small>hanya saat surah dibuka pertama kali &amp; cache belum ada</small></div>
+  <div class="layer">
+    <div class="layer-tag">Lapisan 3 · Sumber data eksternal</div>
+    <h3>EQuran.id — API v2</h3>
+    <div class="chips">
+      <span class="chip gold">Teks Arab, Latin, terjemah 5 surah pilihan</span>
+      <span class="chip gold">Field audio pada respons dibuang sebelum disimpan</span>
+      <span class="chip gold">Gratis, tanpa pendaftaran</span>
+    </div>
+  </div>
+
+  <div class="arch-note">
+    <strong>Perhatikan alurnya:</strong> browser pengunjung memanggil EQuran.id <strong>langsung</strong>, bukan melalui server pondok. Itu sebabnya website tetap berupa file statis biasa — tidak ada backend, database, atau tagihan server yang harus dikelola. Sebagai gantinya, setiap pengunjung menyimpan hasil unduhannya sendiri di perangkatnya.
+  </div>
+</section>
+
+<!-- 3. DUA JALUR DATA -->
+<section>
+  <div class="sec-head"><span class="no">3</span><h2>Inti cara kerja: dua jalur data</h2>
+    <p>Inilah yang membedakan Majmu' ini dari sekadar menautkan website orang lain.</p></div>
+  <div class="grid2">
+    <div class="flow">
+      <div class="flow-title">Jalur A — Surah Pilihan <span class="badge a">Hybrid: API + cache</span></div>
+      <ol class="steps">
+        <li><strong>Pengunjung membuka</strong> <code>/majmu/baca/?surah=36</code> (Yasin).</li>
+        <li><strong>Browser memeriksa penyimpanan lokal.</strong>
+          <div class="branch"><strong>Jika sudah pernah dibuka:</strong> teks langsung dirender dari salinan tersimpan — cepat, dan tetap jalan saat internet mati. Muncul catatan "membaca salinan tersimpan".</div>
+          <div class="branch"><strong>Jika kunjungan pertama:</strong> tampil status memuat, lalu browser mengunduh dari <code>equran.id/api/v2/surat/36</code>, membuang field audio agar salinan ringan, menyimpan sisanya, baru menampilkan.</div>
+        </li>
+        <li><strong>Tombol "Segarkan"</strong> memaksa ambil ulang teks terbaru dari API, menimpa cache lama.</li>
+        <li><strong>Jika unduhan gagal:</strong> ada cache → pakai cache; tidak ada cache → tampil halaman kesalahan dengan tombol "Coba lagi".</li>
+      </ol>
+    </div>
+    <div class="flow">
+      <div class="flow-title">Jalur B — Tahlil, Dzikir, Dhuha <span class="badge b">Data milik sendiri</span></div>
+      <ol class="steps">
+        <li><strong>Berkas JSON sudah ikut dibangun</strong> ke dalam website pada folder <code>/data/majmu/</code> dan dihosting di domain pondok sendiri.</li>
+        <li><strong>Saat halaman dibuka,</strong> browser mengambil berkas kecil ini (total ±64 KB untuk tiga berkas) dari website pondok, lalu merendernya.</li>
+        <li><strong>Tidak bergantung layanan luar saat dibaca</strong> — hanya bergantung pada website pondok sendiri, dan browser biasanya meng-cache berkas ini secara otomatis.</li>
+        <li><strong>Cara memperbarui:</strong>
+          <div class="branch">Dzikir &amp; Dhuha: jalankan <code>npm run data:majmu</code> — skrip menarik doa terbaru dari EQuran.id lalu menulis ulang JSON-nya.</div>
+          <div class="branch">Tahlil: ganti isi <code>tahlil.json</code>, lalu build ulang.</div>
+        </li>
+        <li><strong>Hasil perubahan baru online</strong> setelah di-push dan Netlify membangun ulang — alurnya sama dengan mengubah halaman website biasa.</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PERJALANAN PENGUNJUNG -->
+<section>
+  <div class="sec-head"><span class="no">4</span><h2>Perjalanan pengunjung (user flow)</h2>
+    <p>Lima langkah yang dialami santri sejak dari beranda.</p></div>
+  <div class="journey">
+    <div class="jstep"><div class="n">1</div><strong>Menu navigasi</strong><span>Menekan "Majmu'" di menu atas, atau di menu garis tiga pada HP</span></div>
+    <div class="jstep"><div class="n">2</div><strong>Daftar isi /majmu/</strong><span>Memilih surah, tahlil, dzikir, atau panduan Dhuha</span></div>
+    <div class="jstep"><div class="n">3</div><strong>Halaman baca</strong><span>Teks Arab, Latin, terjemah tersusun per ayat/bacaan</span></div>
+    <div class="jstep"><div class="n">4</div><strong>Atur tampilan</strong><span>Toggle Latin/terjemah, ukuran teks Arab, tombol bagikan</span></div>
+    <div class="jstep"><div class="n">5</div><strong>Kembali lagi</strong><span>Preferensi &amp; penanda tersimpan; muncul kartu "Lanjutkan membaca"</span></div>
+  </div>
+</section>
+
+<!-- 5. STRUKTUR BERKAS -->
+<section>
+  <div class="sec-head"><span class="no">5</span><h2>Struktur berkas di repo <code>ppdt</code></h2>
+    <p>Yang diwarnai emas adalah berkas baru khusus Majmu'. Sisanya sistem website lama yang tidak diubah strukturnya.</p></div>
+<pre class="tree">ppdt/
+├── <span class="dir">src/</span>
+│   ├── <span class="new">majmu/</span>
+│   │   ├── index.html            <span class="cmt"># daftar isi (/majmu/)</span>
+│   │   └── baca/index.html       <span class="cmt"># pembaca generik (/majmu/baca/?surah|tahlil|dzikir|dhuha)</span>
+│   ├── <span class="new">assets/</span>
+│   │   ├── <span class="new">majmu.css          # gaya khusus majmu' (tema hijau yang sama)</span>
+│   │   └── <span class="new">majmu.js           # otak aplikasi: fetch, cache, render teks (tanpa audio)</span>
+│   ├── index.html                <span class="cmt"># beranda: tidak diubah</span>
+│   └── _data/site-data.mjs       <span class="cmt"># menu utama: ditambah item "Majmu'"</span>
+│   └── _includes/footer.html     <span class="cmt"># ditambah tautan Majmu'</span>
+├── <span class="dir">public/</span>
+│   └── <span class="new">data/majmu/</span>
+│       ├── tahlil.json           <span class="cmt"># 44 bacaan (dataset MIT, sumber NU Online)</span>
+│       ├── dzikir-shalat.json    <span class="cmt"># 13 dzikir &amp; doa (dari EQuran.id)</span>
+│       ├── dhuha.json            <span class="cmt"># niat, tata cara, doa Dhuha</span>
+│       └── SUMBER-DATA.md        <span class="cmt"># catatan atribusi &amp; lisensi</span>
+├── <span class="dir">scripts/</span>
+│   ├── build.mjs                 <span class="cmt"># dirakit ulang: ikut menyalin /data &amp; fingerprint aset majmu'</span>
+│   └── <span class="new">fetch-majmu-data.mjs   # perintah "npm run data:majmu"</span>
+└── package.json                  <span class="cmt"># ditambah satu perintah saja</span></pre>
+</section>
+
+<!-- 6. BUILD & DEPLOY -->
+<section>
+  <div class="sec-head"><span class="no">6</span><h2>Alur build &amp; deploy</h2>
+    <p>Pengurus cukup mengedit dan mendorong perubahan — sisanya otomatis.</p></div>
+  <div class="pipeline">
+    <div class="pstep"><span class="k">Tahap 1</span><strong>Edit konten</strong><span>Ubah HTML, data JSON, atau data pusat di komputer/CodeSpaces</span></div>
+    <div class="pstep"><span class="k">Tahap 2</span><strong>Build lokal (opsional)</strong><span><code>npm run build</code> memeriksa &amp; merakit ke folder <code>dist/</code></span></div>
+    <div class="pstep"><span class="k">Tahap 3</span><strong>Push ke GitHub</strong><span>Netlify mendeteksi perubahan dan menjalankan build yang sama</span></div>
+    <div class="pstep"><span class="k">Tahap 4</span><strong>Online otomatis</strong><span><code>build.mjs</code> merakit halaman, memberi hash aset, menyalin data, memperbarui sitemap</span></div>
+  </div>
+  <div class="arch-note" style="margin-top:18px">
+    <strong>Apa itu "fingerprint / hash aset"?</strong> Nama berkas CSS/JS dibuat seperti <code>majmu.572c76f0.css</code> — angka tengahnya berubah setiap isi berkas berubah. Dengan begitu browser tidak mungkin menampilkan versi lama yang nyangkut di cache. Pengurus tidak perlu memikirkan ini; mekanismenya berjalan sendiri di <code>build.mjs</code>.
+  </div>
+</section>
+
+<!-- 7. STATUS & RENCANA -->
+<section>
+  <div class="sec-head"><span class="no">7</span><h2>Peta jalan: mana yang sudah jalan, mana yang menyusul</h2></div>
+  <div class="status">
+    <div class="card done">
+      <h3>Sudah berfungsi (MVP)</h3>
+      <ul>
+        <li>Al-Kahfi, Yasin, Ar-Rahman, Al-Waqiah, Al-Mulk — Arab, Latin, terjemah (tanpa audio, fokus ringan)</li>
+        <li>Tahlil &amp; doa arwah (44 bacaan)</li>
+        <li>Dzikir &amp; doa seputar shalat (13 doa, termasuk doa setelah Dhuha)</li>
+        <li>Panduan shalat Dhuha: niat, tata cara, doa</li>
+        <li>Cache otomatis + kartu "Lanjutkan membaca"</li>
+        <li>Toggle tampilan, ukuran teks Arab, tombol bagikan</li>
+        <li>Item menu navigasi (desktop &amp; menu garis tiga HP), tautan footer, sitemap, dan atribusi sumber</li>
+      </ul>
+    </div>
+    <div class="card next">
+      <h3>Menunggu tahap berikutnya</h3>
+      <ul>
+        <li>Ratib Al-Haddad — perlu transkripsi &amp; tashih pengurus (kartu "dalam penyiapan" sudah terpasang)</li>
+        <li>Maulid Ad-Diba' — disiapkan per rawi beserta mahalul qiyam</li>
+        <li>PWA + service worker: seluruh teks offline sejak kunjungan pertama (kini offline mulai kunjungan kedua)</li>
+        <li>Bagian Koperasi: profil, katalog produk, pemesanan via WhatsApp</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- 8. PIPELINE RATIB & DIBA -->
+<section>
+  <div class="sec-head"><span class="no">8</span><h2>Alur khusus Ratib &amp; Diba': mengapa tidak langsung tayang</h2>
+    <p>Teks ibadah berbeda dari teks API yang sudah terverifikasi — akurasi huruf dan harakat adalah keharusan, sehingga dibuat jalur pemeriksaan.</p></div>
+  <div class="pipeline">
+    <div class="pstep"><span class="k">Langkah 1</span><strong>Naskah acuan</strong><span>PDF/cetak Ratib atau Diba' yang dipakai pondok ditetapkan sebagai rujukan</span></div>
+    <div class="pstep"><span class="k">Langkah 2</span><strong>Transkripsi ke JSON</strong><span>Diketik terstruktur per bab/rawi, ditandai <code>verified: false</code> (draf)</span></div>
+    <div class="pstep"><span class="k">Langkah 3</span><strong>Tashih pengurus</strong><span>Ustadz/pengurus membandingkan dengan naskah acuan, memperbaiki, lalu menyetujui</span></div>
+    <div class="pstep"><span class="k">Langkah 4</span><strong>Tayang</strong><span>Penanda jadi <code>verified: true</code>, kartu di daftar isi diaktifkan, build &amp; deploy</span></div>
+  </div>
+  <div class="arch-note" style="margin-top:18px">
+    Selama proses berlangsung, dua kartu berlabel <strong>"Dalam penyiapan"</strong> sudah tampil di <code>/majmu/</code> sehingga pengunjung tahu fiturnya sedang disiapkan — bukan rusak atau tertinggal.
+  </div>
+</section>
+
+<!-- 9. GLOSARIUM -->
+<section>
+  <div class="sec-head"><span class="no">9</span><h2>Glosarium singkat</h2></div>
+  <div class="glos">
+    <div class="g"><strong>API</strong><p>Pintu data di internet. Website memanggil alamat EQuran.id, dibalas data teks surah secara terstruktur — tanpa kunci/biaya.</p></div>
+    <div class="g"><strong>JSON</strong><p>Format berkas teks yang rapi untuk dibaca mesin — dipakai untuk tahlil, dzikir, dan dhuha.</p></div>
+    <div class="g"><strong>localStorage</strong><p>Ruang kecil di browser pengunjung untuk menyimpan cache &amp; preferensi. Tidak ada data yang dikirim ke server pondok.</p></div>
+    <div class="g"><strong>Build</strong><p>Proses merakit file sumber di <code>src/</code> menjadi situs final di <code>dist/</code> yang siap dihosting.</p></div>
+    <div class="g"><strong>Fingerprint/hash</strong><p>Nama acak berbasis isi berkas agar perubahan selalu langsung terlihat, tidak tertutup cache lama.</p></div>
+    <div class="g"><strong>PWA</strong><p>Tahap lanjutan: website yang bisa "diinstall" di HP dan menyimpan lebih banyak konten untuk dipakai penuh tanpa internet.</p></div>
+  </div>
+</section>
+
+<footer>
+  Dokumen gambaran ini disusun untuk tahap awal pemahaman proyek · Pelengkap teknis: <code>RENCANA-PROYEK-PPDT.md</code> dan <code>public/data/majmu/SUMBER-DATA.md</code><br>
+  Pondok Pesantren Darut Thalibin Telang — 2026
+</footer>
+
+</div>
+</body>
+</html>

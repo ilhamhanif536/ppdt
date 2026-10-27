@@ -1,0 +1,124 @@
+{
+  "judul": "Dzikir dan Doa Seputar Shalat",
+  "sumber": "EQuran.id Doa API (https://equran.id/apidev) — data bersumber Kementerian Agama RI",
+  "diambil": "2026-10-27",
+  "catatan": "File ini dibuat otomatis oleh scripts/fetch-majmu-data.mjs. Perubahan manual akan tertimpa saat skrip dijalankan ulang — untuk kurasi permanen, sunting daftar ID di skrip atau pindahkan entri ke file manual seperti dhuha.json.",
+  "grup": [
+    {
+      "judul": "Lafal Dzikir dan Keutamaannya",
+      "keterangan": "Dzikir ringan yang dianjurkan dibaca, terutama setelah shalat fardhu.",
+      "items": [
+        {
+          "id": 204,
+          "nama": "Lafal Dzikir 1",
+          "arab": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+          "latin": "Subhaanallaahi wa bihamdih.",
+          "terjemah": "Maha Suci Allah, aku memujiNya.",
+          "tentang": "HR. Al-Bukhari 7/168, Muslim 4/2071.\nNabi Shallallahu'alaihi wasallam bersabda: \"Siapa yang membaca: (dzikir di atas) 100x dalam sehari, maka akan dihapuskan dosa-dosanya, meskipun sebanyak buih di lautan.\"\n\n\nSumber: Hisnul Muslim."
+        },
+        {
+          "id": 205,
+          "nama": "Lafal Dzikir 2 (Tasbih Malaikat)",
+          "arab": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ",
+          "latin": "Subhaanallaahi wa bihamdih.",
+          "terjemah": "Maha Suci Allah, aku memujiNya.",
+          "tentang": "HR. Muslim no.2731.\nDari Abu Dzar, Nabi shallallahu 'alaihi wa sallam ditanya: Kalimat apakah yang paling mulia? Beliau menjawab: \"Kalimat yang Allah pilihkan untuk malaikat dan untuk para hambanya: (dzikir di atas).\"\n\nTentang tasbih para malaikat, Allah nyatakan dalam firman-Nya:\nIngatlah ketika Tuhanmu berfirman kepada para Malaikat: \"Sesungguhnya Aku hendak menjadikan seorang khalifah di muka bumi.\" Mereka berkata: \"Mengapa Engkau hendak menjadikan (khalifah) di bumi itu orang yang akan membuat kerusakan padanya dan menumpahkan darah, padahal kami senantiasa bertasbih dengan memuji Engkau dan mensucikan Engkau?\" Tuhan berfirman: \"Sesungguhnya Aku mengetahui apa yang tidak kamu ketahui.\" (Al-Baqarah [2]: 30).\n\nKalimat (dzikir di atas) itulah cara bertasbih malaikat"
+        },
+        {
+          "id": 206,
+          "nama": "Lafal Dzikir 3 (Dua Kalimat Yang Ringan Di Lisan, Berat Di Timbangan)",
+          "arab": "سُبْحَانَ اللَّهِ وَبِحَمْدِهِ، سُبْحَانَ اللَّهِ الْعَظِيْمِ",
+          "latin": "Subhaanallaahi wa bihamdih, subhaanallaahil 'azhiim.",
+          "terjemah": "Maha Suci Allah, aku memujiNya, Maha Suci Allah Yang Maha Agung.",
+          "tentang": "HR. Al-Bukhari 7/168 dan Muslim 4/2072.\nRasulullah Shallallahu'alaihi wasallam bersabda: \"Dua kalimat yang ringan di lidah, pahalanya berat di timbangan (hari Kiamat) dan disenangi oleh Tuhan Yang Maha Pengasih, adalah: (dzikir di atas).\"\n\n\nSumber: Hisnul Muslim."
+        },
+        {
+          "id": 207,
+          "nama": "Lafal Dzikir 4 (Pohon Kurma Di Surga)",
+          "arab": "سُبْحَانَ اللَّهِ الْعَظِيْمِ وَبِحَمْدِهِ",
+          "latin": "Subhaanallaahil 'azhiimi wa bihamdih.",
+          "terjemah": "Maha Suci Allah Yang Maha Agung, aku memujiNya.",
+          "tentang": "HR. At-Tirmidzi 5/511 dan Al-Hakim 1/501. Menurut pendapatnya, hadits tersebut shahih. Imam Adz-Dzahabi menyetujuinya. Lihat pula Shahihul Jami' 5/531 dan Shahih At-Tirmidzi 3/160.\n\"Barangsiapa yang membaca: (dzikir di atas), maka ditanam untuknya sebatang pohon kurma di Surga.\"\n\n\nSumber: Hisnul Muslim."
+        },
+        {
+          "id": 208,
+          "nama": "Lafal Dzikir 5",
+          "arab": "سُبْحَانَ اللَّهِ، وَالْحَمْدُ لِلَّهِ، وَلاَ إِلَـٰهَ إِلاَّ اللَّهُ، وَاللَّهُ أَكْبَرُ",
+          "latin": "Subhaanallaah, wal hamdulillaah, wa laa ilaaha illallaah, wallaahu akbar.",
+          "terjemah": "Maha Suci Allah, Segala Puji bagi Allah, tidak ada sesembahan yang berhak disembah kecuali Allah, Allah Maha Besar.",
+          "tentang": "HR. Muslim 4/2072.\nRasulullah Shallallahu'alaihi wasallam bersabda: \"Sungguh, apabila aku membaca: (dzikir di atas) adalah lebih senang bagiku dari apa yang disinari oleh matahari terbit.\"\n\n\nSumber: Hisnul Muslim."
+        },
+        {
+          "id": 209,
+          "nama": "Lafal Dzikir 6 (Doa Dan Dzikir Terbaik)",
+          "arab": "Sesungguhnya doa yang terbaik adalah membaca:\nاَلْحَمْدُ لِلَّهِ",
+          "latin": "Alhamdulillaah.",
+          "terjemah": "Segala Puji bagi Allah.",
+          "tentang": "Sedang dzikir yang terbaik adalah:\n\nلاَ إِلَـٰهَ إِلاَّ اللَّهُ\n\nLaa ilaaha illallaah.\n\nTidak ada sesembahan yang berhak disembah kecuali Allah.\n\n\nHR. At-Tirmidzi 5/462, Ibnu Majah 2/1249, Al-Hakim 1/503. Menurut Al-Hakim, hadits tersebut adalah shahih. Imam Adz-Dzahabi menyetujuinya, Lihat pula Shahihul Jami' 1/362.\n\nSumber: Hisnul Muslim."
+        },
+        {
+          "id": 210,
+          "nama": "Lafal Dzikir 7 (Pahalanya Lebih Besar Daripada Dzikir Sehari Semalam)",
+          "arab": "اَلْحَمْدُ لِلَّهِ عَدَدَ مَا خَلَقَ\nوَالْحَمْدُ لِلَّهِ مِلْءَ مَا خَلَقَ\nوَالْحَمْدُ لِلَّهِ عَدَدَ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ\nوَالْحَمْدُ لِلَّهِ عَدَدَ مَا أَحْصَى كِتَابُهُ\nوَالْحَمْدُ لِلَّهِ مِلْءَ مَا أَحْصَى كِتَابُهُ\nوَالْحَمْدُ لِلَّهِ عَدَدَ كُلِّ شَيْءٍ\nوَالْحَمْدُ لِلَّهِ مِلْءَ كُلِّ شَيْءٍ\n\nسُبْحَانَ اللَّهِ عَدَدَ مَا خَلَقَ\nوَسُبْحَانَ اللَّهِ مِلْءَ مَا خَلَقَ\nوَسُبْحَانَ اللَّهِ عَدَدَ مَا فِي السَّمَاوَاتِ وَمَا فِي الأَرْضِ\nوَسُبْحَانَ اللَّهِ عَدَدَ مَا أَحْصَى كِتَابُهُ\nوَسُبْحَانَ اللَّهِ مِلْءَ مَا أَحْصَى كِتَابُهُ\nوَسُبْحَانَ اللَّهِ عَدَدَ كُلِّ شَيْءٍ\nوَسُبْحَانَ اللَّهِ مِلْءَ كُلِّ شَيْءٍ",
+          "latin": "Alhamdulillaahi 'adada maa kholaq,\nwalhamdulillaahi mil-a maa kholaq,\nwalhamdulillaahi 'adada maa fis-samaawaati wa maa fil ardh,\nwalhamdulillaahi 'adada maa ahshoo kitaabuh,\nwalhamdulillaahi mil-a maa ahshoo kitaabuh,\nwalhamdulillaahi 'adada kulli syai-in,\nwalhamdulillaahi mil-a kulli syai-in,\n\nSubhaanallaahi 'adada maa kholaq,\nwa subhaanallaahi mil-a maa kholaq,\nwa subhaanallaahi 'adada maa fis-samaawaati wa maa fil ardh,\nwa subhaanallaahi 'adada maa ahshoo kitaabuh,\nwa subhaanallaahi mil-a maa ahshoo kitaabuh,\nwa subhaanallaahi 'adada kulli syai-in,\nwa subhaanallaahi mil-a kulli syai-in.",
+          "terjemah": "Segala puji bagi Allah sebanyak ciptaan-Nya,\nSegala puji bagi Allah meliputi seluruh ciptaan-Nya,\nSegala puji bagi Allah sebanyak segala yang ada di langit dan di bumi,\nSegala puji bagi Allah sebanyak segala yang terhitung dalam kitab-Nya,\nSegala puji bagi Allah meliputi semua yang dapat dihitung dalam kitab-Nya,\nSegala puji bagi Allah sebanyak segala sesuatu,\nSegala puji bagi Allah meliputi segala sesuatu,\n\nMaha suci Allah sebanyak ciptaan-Nya,\nMaha suci Allah meliputi seluruh ciptaan-Nya,\nMaha suci Allah sebanyak segala yang ada di langit dan di bumi,\nMaha suci Allah sebanyak segala yang terhitung dalam kitab-Nya,\nMaha suci Allah meliputi semua yang dapat dihitung dalam kitab-Nya,\nMaha suci Allah sebanyak segala sesuatu,\nMaha suci Allah meliputi segala sesuatu.",
+          "tentang": "HR. Imam Nasa’i 6/50 hadits no 9994, Ibnu Khuzaimah 1/371 hadits nomor 754 dan Imam Thabrani 8/238 hadits no. 7930. Dishahihkan oleh Syaikh Al Albani dalam kitab Shahihul Jami’ no 2615.\nSuatu saat Nabi -shallallahu alaihi wasallam- melihat Abu Umamah -radhiallahu anhu- menggerakkan bibirnya, maka beliau bertanya, “Apa yang sedang kau baca wahai Abu Umamah?” Dia menjawab, “Aku sedang berdzikir kepada Allah.” Beliau mengatakan, “Maukah aku tunjukkan kepadamu dzikir yang pahalanya lebih banyak dari dzikirmu selama sehari semalam?” Kemudian beliau mengajarinya: (dzikir di atas), dan beliau berpesan, “Ajarkanlah dzikir ini kepada orang-orang setelahmu.”\n\n\nSumber: http://www.madinatulquran.or.id/dzikir-yang-sangat-dahsyat-pahalanya dan http://jilbab.or.id/archives/2153-berdzikir-sekali-mendapat-pahala-berdzikir-sepanjang-malam-dan-siang-hari"
+        }
+      ]
+    },
+    {
+      "judul": "Beberapa Doa Terkait Shalat",
+      "keterangan": "Doa-doa pada situasi shalat tertentu, termasuk doa setelah shalat Dhuha (versi ringkas, id 227). Versi panjang dikelola manual di dhuha.json.",
+      "items": [
+        {
+          "id": 222,
+          "nama": "Doa Sujud Tilawah",
+          "arab": "سَجَدَ وَجْهِيَ لِلَّذِيْ خَلَقَهُ وَشَقَّ سَمْعَهُ وَبَصَرَهُ بِحَوْلِهِ وَقُوَّتِهِ، فَتَبَارَكَ اللَّهُ أَحْسَنُ الْخَالِقِيْنَ",
+          "latin": "Sajada wajhiya lilladzii kholaqohu wa syaqqo sam'ahu wa bashorohu bihaulihi wa quwwatih, fatabaarokallaahu ahsanul khooliqiin.",
+          "terjemah": "Bersujud wajahku kepada Tuhan yang menciptakannya, yang membelah pendengaran dan penglihatannya dengan Daya dan KekuatanNya, Maha Suci Allah sebaik-baik Pencipta.",
+          "tentang": "HR. At-Tirmidzi 2/474. Ahmad 6/30 dan Al-Hakim. Menurut Al-Hakim, hadits tersebut shahih. Imam Adz-Dzahabi menyetujui pendapatnya 1/220. Sedang tambahannya: Fatabaarakallaahu menurut riwayat Adz-Dzahabi sendiri.\n\nSumber: Hisnul Muslim."
+        },
+        {
+          "id": 223,
+          "nama": "Doa Qunut Witir",
+          "arab": "اَللَّهُمَّ اهْدِنِيْ فِيْمَنْ هَدَيْتَ، وَعَافِنِيْ فِيْمَنْ عَافَيْتَ، وَتَوَلَّنِيْ فِيْمَنْ تَوَلَّيْتَ، وَبَارِكْ لِيْ فِيْمَا أَعْطَيْتَ، وَقِنِيْ شَرَّ مَا قَضَيْتَ، فَإِنَّكَ تَقْضِيْ وَلاَ يُقْضَى عَلَيْكَ، وَإِنَّهُ لاَ يَذِلُّ مَنْ وَالَيْتَ، (وَلاَ يَعِزُّ مَنْ عَادَيْتَ)، تَبَارَكْتَ رَبَّنَا وَتَعَالَيْتَ",
+          "latin": "Allaahummah-dinii fiiman hadait, wa 'aafinii fiiman 'aafait, wa tawallanii fiiman tawallait, wa baarik lii fiimaa a'thoit, wa qinii syarro maa qodhoit, fa-innaka taqdhii wa laa yuqdhoo 'alaik, wa innahu laa yadzillu man waalait, (wa laa ya'izzu man 'aadait), tabaarokta robbanaa wa ta'aalait.",
+          "terjemah": "Ya Allah, berilah aku petunjuk sebagaimana orang yang telah Engkau beri petunjuk, berilah aku perlindungan (dari penyakit dan apa yang tidak disukai) sebagaimana orang yang telah Engkau lindungi, sayangilah aku sebagaimana orang yang telah Engkau sayangi. Berilah berkah pada apa yang Engkau berikan kepadaku, jauhkan aku dari kejelekan apa yang Engkau takdirkan, sesungguhnya Engkau yang menjatuhkan hukum, dan tidak ada orang yang memberikan hukuman kepadaMu. Sesungguhnya orang yang Engkau bela tidak akan terhina, (dan orang yang Engkau musuhi tidak akan mulia), Maha Suci Engkau, wahai Tuhan kami dan Maha Tinggi Engkau.",
+          "tentang": "HR. Empat penyusun kitab Sunan, Ahmad, Ad-Darimi, Al-Hakim dan Al-Baihaqi. Sedang doa yang ada di antara dua kurung, menurut riwayat Al-Baihaqi. Lihat Shahih At-Tirmidzi 1/144, Shahih Ibnu Majah 1/194 dan Irwa'ul Ghalil, oleh Al-Albani 2/172.\nKetika witir, disyariatkan untuk melakukan qunut di rakaat terakhir.\n\nHadits selengkapnya:\nDari Hasan bin Ali radhiyallahu 'anhuma, beliau mengatakan: Rasulullah shallallahu 'alaihi wa sallam mengajariku beberapa kalimat, yang hendaknya kuucapkan ketika qunut shalat witir: (doa di atas).\n\n\nSumber: Hisnul Muslim dan http://www.facebook.com/doa.dzikir.shahih.harian/posts/272729346160464"
+        },
+        {
+          "id": 224,
+          "nama": "Doa Di Akhir Shalat Witir",
+          "arab": "اَللَّهُمَّ إِنِّيْ أَعُوْذُ بِرِضَاكَ مِنْ سَخَطِكَ، وَبِمُعَافَاتِكَ مِنْ عُقُوْبَتِكَ، وَأَعُوْذُ بِكَ مِنْكَ، لاَ أُحْصِيْ ثَنَاءً عَلَيْكَ، أَنْتَ كَمَا أَثْنَيْتَ عَلَى نَفْسِكَ",
+          "latin": "Allaahumma innii a'uudzu biridhooka min sakhothika, wa bimu'aafaatika min 'uquubatika, wa a'uudzu bika minka, laa uhshii tsanaa-an 'alaika, anta kamaa ats-naita 'alaa nafsik.",
+          "terjemah": "Ya Allah, sesungguhnya aku berlindung dengan keridhaan-Mu dari kemarahanMu, dan dengan keselamatanMu dari hukumanMu, dan aku berlindung kepadaMu dari siksaMu. Aku tidak mampu menghitung pujian dan sanjungan kepadaMu, Engkau adalah sebagaimana yang Engkau sanjungkan kepada diriMu sendiri.",
+          "tentang": "HR. An-Nasa'i 1747, Abu Daud 1427 dan Turmudzi 3566, dinilai shahih oleh Al-Albani.\nHadis selengkapnya:\nDari Ali bin Abi Thalib radhiyallahu 'anhu, beliau mengatakan: Bahwa Nabi shallallahu 'alaihi wa sallam di penghujung shalat witirnya, beliau membaca: (doa di atas).\n\nKapankah doa ini dibaca?\nPada hadits di atas tidak dijelaskan kapan Nabi shallallahu 'alaihi wa sallam membaca doa tersebut ketika shalat witir. Dalam catatan untuk Sunan An-Nasa'i, As-Sindi mengatakan: Keterangan beliau \"di penghujung shalat witirnya, beliau membaca…\" mungkin maknanya adalah beliau baca di akhir tahajud, sehingga itu termasuk doa qunut, sebagaimana isyarat keterangan An-Nasa'i, mungkin juga dimaknai bahwa doa ini dibaca ketika duduk tasyahud akhir, dan ini makna yang tersirat dari hadis tersebut. (Dinukil dari Bughyatul Mutathawi', hlm. 30).\n\nAkan tetapi disebutkan dalam kitab Amalul Yaum wa Lailah karya An-Nasai, demikian pula ibnu Sunni, bahwa Ali bin Abi Thalib radhiyallahu 'anhu mengatakan: Saya menginap di rumah Rasulullah shallallahu 'alaihi wa sallam di suatu malam. Ketika beliau usai shalat dan bersiap di tempat tidurnya, beliau membaca: (doa di atas). (Muntaqa Amalul yaum wa Lailah An-Nasai, hlm. 25). Diantara kebiasaan Nabi shallallahu 'alaihi wa sallam, beliau kembali ke tempat tidur seusai melaksanakan shalat tahajud. Sambil mempersiapkan tempat tidurnya, beliau membaca doa tersebut.\n\nSementara itu, disebutkan dalam riwayat yang lain, dari A'isyah radhiyallahu 'anha, beliau mengatakan: Saya kehilangan Rasulullah shallallahu 'alaihi wa sallam di suatu malam, ternyata aku dapati beliau dalam keadaan sedang sujud, dan dua kaki beliau dipancangkan, sementara beliau membaca: (doa di atas). (HR. Ahmad 25655, An-Nasa'i 1100, Ibn Majah 3841, Ibnu Hibban dalam shahihnya 1932, Ibn Khuzaimah dalam shahihnya 655, dan dishahihkan Al-Albani).\n\nKesimpulan:\nBerdasarkan dua riwayat ini, dapat kita simpulkan bahwa ada dua tempat untuk membaca doa ini ketika witir atau tahajud:\n\nSetelah shalat witir.\nKetika sujud dalam shalat.\nAllahu a'lam.\n\n\nSumber: http://www.facebook.com/doa.dzikir.shahih.harian/posts/271923406241058"
+        },
+        {
+          "id": 225,
+          "nama": "Bacaan Setelah Salam Shalat Witir",
+          "arab": "(سُبْحَانَ الْمَلِكِ الْقُدُّوْسِ (3×) (رَبِّ الْمَلاَئِكَةِ وَالرُّوْحِ",
+          "latin": "Subhaanal malikil qudduus (3x), (robbil malaa-ikati war-ruuh).",
+          "terjemah": "Maha suci Allah, Raja Yang Maha suci (3x, dan yang ketiga, beliau membacanya dengan suara keras dan panjang, dan menambahkan) Tuhannya para malaikat dan Jibril.",
+          "tentang": "HR. An-Nasai 3/244, Ad-Daruquthni dan beberapa imam hadis yang lain. Sedang kalimat antara dua tanda kurung adalah tambahan menurut riwayatnya 2/31. Sanadnya shahih, lihat Zadul Ma'ad yang ditahqiq oleh Syu'aib Al-Arnauth dan Abdul Qadir Al-Arnauth 1/337.\nKeterangan:\nTidak ada doa setelah tarawih maupun di sela tarawih. Yang ada adalah doa setelah witir. Berikut beberapa doa setelah witir yang diajarkan Rasulullah shallallahu 'alaihi wa sallam.\n\nSubhaanal malikil qudduus. (Maha suci Allah, Raja Yang Maha suci).\n\nHadis Selengkapnya:\nDari Ubay bin Ka'ab radhiyallahu 'anhu, beliau mengatakan: Rasulullah shallallahu 'alaihi wa sallam setelah salam shalat witir, beliau membaca: Subhaanal malikil qudduus. (HR. Abu Daud 1430, dishahihkan Al-Albani).\n\nDalam riwayat Nasa'i dari Abdurrahman bin Abza radhiyallahu 'anhu, terdapat tambahan: Rasulullah shallallahu 'alaihi wa sallam melakukan witir dengan membaca surat Al-A'la (rakaat pertama), surat Al-Kafirun (rakaat kedua), dan surat Al-Ikhlas (rakaat ketiga). Setelah salam, beliau membaca: Subhaanal malikil qudduus 3x. Beliau keraskan yang ketiga. (HR. Nasa'i 1732 dan dishahihkan Al-Albani).\n\nDalam riwayat yang lain, terdapat tambahan: \"Beliau baca panjang yang ketiga.\" (HR. Nasa'i 1734 dan dishahihkan Al-Albani).\n\nTambahan \"Rabbil Malaaikati war Ruuh\":\nDisebutkan dalam riwayat Thabrani adanya tambahan:\n\nRabbil Malaaikati war Ruuh. (Tuhannya para malaikat dan Jibril).\n\nDari Ubay bin Ka'ab radhiyallahu 'anhu, beliau mengatakan: Di bagian akhir beliau membaca: Rabbil Malaaikati war Ruuh. (HR. Ad-Daruquthni 1660. Dalam fatwa islam (no. 14093) dinyatakan: sanadnya shahih, dan disebutkan Ibnul Qoyim dalam Zadul Ma'ad 1/323).\n\nDari beberapa riwayat di atas, dapat kita simpulkan terkait bacaan doa ini:\n\nDoa ini dibaca tepat setelah salam shalat witir.\nDoa ini dibaca 3x.\nPada bacaan kali ke-3, dikeraskan dan dipanjangkan \"Subhaaanal malikil qudduuuuu … ss\".\nDisambung dengan membaca \"Rabbil malaaikati war ruuh…\".\nKalimat: \"Subbuuhun qudduusun rabbul malaaikati war ruuh\":\nKalimat termasuk salah satu doa yang diajarkan Nabi shallallahu 'alaihi wa sallam ketika rukuk atau sujud. A'isyah radhiyallahu 'anha mengatakan: Bahwa Rasulullah shallallahu 'alaihi wa sallam membaca doa ketika rukuk dan sujud beliau: \"Subbuuhun qudduusun… dst\". (HR. Muslim 487). Mengingat lafal \"Subbuuhun qudduusun… dst\" adalah doa sujud atau rukuk ketika shalat, sehingga tambahan ini tidak ada hubungannya dengan shalat witir. Karena tidak perlu dibaca seusai witir.\n\nAllahu a'lam.\n\n\nSumber: Hisnul Muslim dan http://www.facebook.com/doa.dzikir.shahih.harian/posts/271175212982544"
+        },
+        {
+          "id": 226,
+          "nama": "Doa Setelah Shalat Istikharah",
+          "arab": "اَللَّهُمَّ إِنِّيْ أَسْتَخِيْرُكَ بِعِلْمِكَ، وَأَسْتَقْدِرُكَ بِقُدْرَتِكَ، وَأَسْأَلُكَ مِنْ فَضْلِكَ الْعَظِيْمِ، فَإِنَّكَ تَقْدِرُ وَلاَ أَقْدِرُ، وَتَعْلَمُ وَلاَ أَعْلَمُ، وَأَنْتَ عَلاَّمُ الْغُيُوْبِ، اَللَّهُمَّ إِنْ كُنْتَ تَعْلَمُ أَنَّ هَـٰذَا اْلأَمْرَ خَيْرٌ لِيْ فِيْ دِيْنِيْ، وَمَعَاشِيْ، وَعَاقِبَةِ أَمْرِيْ، فَاقْدُرْهُ لِيْ، وَيَسِّرْهُ لِيْ، ثُمَّ بَارِكْ لِيْ فِيْهِ، وَإِنْ كُنْتَ تَعْلَمُ أَنَّ هَـٰذَا اْلأَمْرَ شَرٌّ لِيْ فِيْ دِيْنِيْ، وَمَعَاشِيْ، وَعَاقِبَةِ أَمْرِيْ، فَاصْرِفْهُ عَنِّيْ، وَاصْرِفْنِيْ عَنْهُ، وَاقْدُرْ لِيَ الْخَيْرَ حَيْثُ كَانَ، ثُمَّ أَرْضِنِيْ بِهِ",
+          "latin": "Allaahumma innii asta-khiiruka bi'ilmika, wa astaqdiruka biqudrotika, wa as-aluka min fadh-likal 'azhiim, fa-innaka taqdiru wa laa aqdiru, wa ta'lamu wa laa a'lamu, wa anta 'allaamul ghuyuub. Allaahumma in kunta ta'lamu anna haadzal amro khoirun lii fii diinii, wa ma'aasyii, wa 'aaqibati amrii, faqdurhu lii, wa yassirhu lii, tsumma baarik lii fiihi, wa in kunta ta'lamu anna haadzal amro syarrun lii fii diinii, wa ma'aasyii, wa 'aaqibati amrii, fash-rif-hu 'annii, wash-rifnii 'anhu, waqdur liyal khoiro haitsu kaana, tsumma ardhinii bih.",
+          "terjemah": "Ya Allah, sesungguhnya aku meminta pilihan yang tepat kepada-Mu dengan ilmu-Mu, aku mohon kekuasaan-Mu (untuk mengatasi persoalanku) dengan kemahakuasaan-Mu, dan aku mohon anugerah-Mu Yang Maha Agung. Sesungguhnya Engkau Mahakuasa sedang aku tidak kuasa, Engkau mengetahui sedang aku tidak mengetahui, dan Engkau Maha Mengetahui hal yang gaib. Ya Allah, jika Engkau mengetahui bahwa urusan ini baik untuk agama, kehidupan dan akhir urusanku, maka takdirkanlah ia untukku, mudahkan ia untukku, kemudian berkahilah ia untukku. Tapi jika Engkau mengetahui bahwa urusan ini buruk untuk agama, kehidupan dan akhir urusanku, maka jauhkan ia dariku, dan jauhkan aku darinya. Takdirkanlah yang terbaik untukku di mana pun itu, kemudian jadikanlah aku ridha dengannya.",
+          "tentang": "HR. Al-Bukhari 7/162.\n\nTata Cara Shalat Istikharah\n\nIstikharah dilakukan ketika seseorang bertekad untuk melakukan satu hal tertentu, bukan sebatas lintasan batin. Kemudian dia pasrahkan kepada Allah.\n\n1. Bersuci, baik wudhu atau tayammum.\n2. Melaksanakan shalat dua rakaat. Shalat sunnah dua rakaat ini bebas, tidak harus shalat khusus. Bisa juga berupa shalat rawatib, shalat tahiyatul masjid, shalat dhuha, dll, yang penting dua rakaat.\n3. Tidak ada bacaan surat khusus ketika shalat. Artinya cukup membaca Al-Fatihah (ini wajib) dan surat atau ayat yang dihafal.\n4. Berdoa setelah salam dan dianjurkan mengangkat tangan. Caranya: membaca doa di atas (atau doa di halaman selanjutnya).\n5. Selesai doa dia langsung menyebutkan keinginannya dengan bahasa bebas. Misalnya: bekerja di perusahaan A, atau menikah dengan B, atau berangkat ke kota C, dst.\n6. Banyak orang beranggapan bahwa jawaban istikharah akan Allah sampaikan dalam mimpi. Ini adalah anggapan yang yang sama sekali tidak berdalil, karena tidak ada keterkaitan antara istikharah dengan mimpi.\n7. Melakukan apa yang menjadi tekadnya. Jika menjumpai halangan, berarti itu isyarat bahwa Allah tidak menginginkan hal itu terjadi pada anda.\n8. Apapun hasil akhir setelah istikharah, itulah yang terbaik bagi kita. Meskipun bisa jadi tidak sesuai dengan harapan sebelumnya. Karena itu, kita harus berusaha ridha dan lapang dada dengan pilihan Allah untuk kita. Nabi shallallahu ‘alaihi wa sallam mengajarkan dalam doa di atas, dengan menyatakan “kemudian jadikanlah aku ridha dengannya”, maksudnya adalah ridha dengan pilihan-Mu ya Allah, meskipun tidak sesuai keinginanku.\n\nHadits:\nJabir bin Abdillah Radhiallahu'anhu berkata, “Adalah Rasulullah Shallallahu'alaihi wasallam mengajari kami shalat Istikharah untuk memutuskan segala sesuatu, sebagaimana mengajari surah Al-Quran. Beliau bersabda, ‘Apabila seseorang di antara kamu mempunyai rencana untuk mengerjakan sesuatu, hendaknya melakukan shalat sunnah (Istikharah) dua rakaat, kemudian bacalah: (doa di atas).’”\n\nTidak menyesal orang yang beristikharah kepada Al-Khaliq dan bermusyawarah dengan orang-orang mukmin dan berhati-hati dalam menangani persoalannya. Allah Ta'ala berfirman, “… dan bermusyawarahlah kepada mereka (para sahabat) dalam urusan itu (peperangan, perekonomian, politik dan lain-lain). Bila kamu telah membulatkan tekad, bertawakkallah kepada Allah…” (Ali Imran [3]: 159).\n\n\nSumber: Hisnul Muslim dan https://konsultasisyariah.com/8754-tata-cara-shalat-istikharah.html"
+        },
+        {
+          "id": 227,
+          "nama": "Doa Setelah Shalat Dhuha",
+          "arab": "اَللَّهُمَّ اغْفِرْ لِي وَتُبْ عَلَيَّ، إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيمُ",
+          "latin": "Allaahummagh-fir lii wa tub 'alayya, innaka antat-tawwaabur-rohiim (100x).",
+          "terjemah": "Ya Allah, ampunilah dosaku dan terimalah taubatku, sesungguhnya Engkau Maha Penerima Taubat lagi Maha Penyayang (100x).",
+          "tentang": "HR. Bukhari dalam al-Adab al-Mufrod 217 no. 619. Dishahihkan oleh al-Albani.\nDari Aisyah radhiyallahu anha, ia berkata, “Rasulullah shallallahu alaihi wa sallam melaksanakan shalat dhuha kemudian Beliau berucap: (doa di atas). Beliau mengulangnya hingga 100 kali.”\n\n\nSumber: http://www.salamdakwah.com/baca-pertanyaan/dzikir-sholat-dhuha.html"
+        }
+      ]
+    }
+  ]
+}

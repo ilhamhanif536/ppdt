@@ -4,6 +4,8 @@
   "private": true,
   "description": "Website informatif Pondok Pesantren Darut Thalibin Telang",
   "scripts": {
-    "build": "node scripts/build.mjs"
+    "build": "node scripts/build.mjs",
+    "data:majmu": "node scripts/fetch-majmu-data.mjs",
+    "data:ratib": "node scripts/fetch-ratib-haddad.mjs"
   }
 }

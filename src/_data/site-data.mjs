@@ -66,6 +66,8 @@ const siteData = {
     },
     { label: "Pendidikan", path: "/pendidikan/" },
     { label: "Kegiatan", path: "/kegiatan/" },
+    // matchPrefix: menu tetap menyala saat pengunjung berada di halaman turunan (/majmu/baca/...)
+    { label: "Majmu'", path: "/majmu/", matchPrefix: true },
     { label: "Berita", path: "/berita/" },
     { label: "Kontak", path: "/kontak/" },
   ],

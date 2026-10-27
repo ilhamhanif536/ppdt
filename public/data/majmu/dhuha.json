@@ -1,0 +1,42 @@
+{
+  "judul": "Shalat Sunnah Dhuha",
+  "pemeliharaan": "File dikurasi SECARA MANUAL — tidak dibuat ulang oleh 'npm run data:majmu'. Tambah, ubah, atau susun ulang isinya langsung di sini, lalu build ulang.",
+  "pengantar": "Shalat Dhuha adalah shalat sunnah yang dikerjakan ketika matahari mulai naik setinggi kurang lebih tombak hingga menjelang waktu Zhuhur. Dikerjakan minimal 2 rakaat, dan boleh 4, 6, 8, hingga 12 rakaat dengan salam setiap 2 rakaat.",
+  "niat": {
+    "nama": "Niat Shalat Dhuha (2 rakaat)",
+    "arab": "أُصَلِّيْ سُنَّةَ الضُّحَى رَكْعَتَيْنِ أَدَاءً لِلَّهِ تَعَالَى",
+    "latin": "Ushalli sunnatadh-dhuha rak'ataini adaa'an lillaahi ta'aalaa.",
+    "terjemah": "Aku berniat shalat sunnah Dhuha dua rakaat, sebagai pelaksanaan karena Allah Ta'ala.",
+    "catatan": "Untuk 4 rakaat atau lebih, sesuaikan lafal jumlah rakaat (arba'a raka'ātin untuk empat rakaat, dan seterusnya)."
+  },
+  "tataCara": [
+    "Waktu utama: sejak matahari naik setinggi kurang lebih tombak (sekitar pukul 08.00) sampai sebelum masuk waktu Zhuhur.",
+    "Jumlah rakaat minimal 2; dianjurkan 4, 6, atau 8 rakaat, maksimal 12 rakaat, dengan salam setiap 2 rakaat.",
+    "Pelaksanaan sama dengan shalat sunnah pada umumnya: niat, takbiratul ihram, membaca Al-Fatihah lalu surah, ruku' dan sujud dengan tertib.",
+    "Setelah salam, dianjurkan membaca doa shalat Dhuha. Tersedia beberapa versi pada daftar di bawah ini — pilih yang sesuai dengan amalan pondok."
+  ],
+  "doaList": [
+    {
+      "id": "dhuha-1",
+      "nama": "Doa Setelah Shalat Dhuha — Riwayat Aisyah (versi ringkas)",
+      "arab": "اَللَّهُمَّ اغْفِرْ لِي وَتُبْ عَلَيَّ، إِنَّكَ أَنْتَ التَّوَّابُ الرَّحِيْمُ",
+      "latin": "Allaahummagh-fir lii wa tub 'alayya, innaka antat-tawwaabur-rohiim (dibaca hingga 100 kali).",
+      "terjemah": "Ya Allah, ampunilah dosaku dan terimalah taubatku, sesungguhnya Engkau Maha Penerima Taubat lagi Maha Penyayang.",
+      "tentang": "HR. Bukhari dalam al-Adab al-Mufrod (217 no. 619), dishahihkan al-Albani. Dari Aisyah radhiyallahu 'anha, Rasulullah shallallahu 'alaihi wa sallam shalat dhuha lalu membaca doa ini hingga seratus kali.",
+      "sumber": "EQuran.id Doa API (id 227) — data Kementerian Agama RI",
+      "lisensi": "Atribusi EQuran.id",
+      "status": "terverifikasi"
+    },
+    {
+      "id": "dhuha-2",
+      "nama": "Doa Setelah Shalat Dhuha — versi panjang (umum dalam kitab fiqih & majmu')",
+      "arab": "اَللّٰهُمَّ اِنَّ الضُّحَآءَ ضُحَاءُكَ، وَالْبَهَاءَ بَهَاءُكَ، وَالْجَمَالَ جَمَالُكَ، وَالْقُوَّةَ قُوَّتُكَ، وَالْقُدْرَةَ قُدْرَتُكَ، وَالْعِصْمَةَ عِصْمَتُكَ. اَللّٰهُمَّ اِنْ كَانَ رِزْقِىْ فِى السَّمَآءِ فَأَنْزِلْهُ، وَاِنْ كَانَ فِى الْأَرْضِ فَأَخْرِجْهُ، وَاِنْ كَانَ مُعَسَّرًا فَيَسِّرْهُ، وَاِنْ كَانَ حَرَامًا فَطَهِّرْهُ، وَاِنْ كَانَ بَعِيْدًا فَقَرِّبْهُ، بِحَقِّ ضُحَاءِكَ وَبَهَاءِكَ وَجَمَالِكَ وَقُوَّتِكَ وَقُدْرَتِكَ آتِنِىْ مَآ آتَيْتَ عِبَادَكَ الصَّالِحِيْنَ",
+      "latin": "Allahumma innadh dhuha-a dhuha-uka, wal bahaa-a bahaa-uka, wal jamaala jamaaluka, wal quwwata quwwatuka, wal qudrata qudratuka, wal 'ishmata 'ishmatuka. Allahumma in kaana rizqii fis samaa-i fa anzilhu, wa in kaana fil ardhi fa akhrijhu, wa in kaana mu'assaran fayassirhu, wa in kaana haraaman fathahhirhu, wa in kaana ba'iidan fa qarribhu, bihaqqi dhuhaa-ika wa bahaa-ika wa jamaalika wa quwwatika wa qudratika, aatini maa aataita 'ibaadakash shalihiin.",
+      "terjemah": "Ya Allah, sesungguhnya waktu Dhuha adalah waktu Dhuha-Mu, keagungan adalah keagungan-Mu, keindahan adalah keindahan-Mu, kekuatan adalah kekuatan-Mu, kekuasaan adalah kekuasaan-Mu, dan penjagaan adalah penjagaan-Mu. Ya Allah, apabila rezekiku berada di atas langit maka turunkanlah, apabila berada di dalam bumi maka keluarkanlah, apabila sulit maka mudahkanlah, apabila haram maka sucikanlah, apabila jauh maka dekatkanlah. Berkat waktu Dhuha, keagungan, keindahan, kekuatan, dan kekuasaan-Mu, berikanlah kepadaku apa yang Engkau berikan kepada hamba-hamba-Mu yang saleh.",
+      "tentang": "Versi yang umum tercantum dalam kitab-kitab fiqih mazhab Syafi'i (antara lain Hasyiyah al-Jamal) dan banyak buku majmu' di Indonesia. CATATAN: teks pada entri ini hasil transkripsi sumber terbuka dan WAJIB ditashih pengurus pondok dibandingkan naskah/cetakan yang dijadikan acuan sebelum disebarluaskan.",
+      "sumber": "Wikibuku 'Doa Shalat Dhuha Lengkap' — https://id.wikibooks.org/wiki/Doa_Shalat_Dhuha_Lengkap",
+      "lisensi": "CC BY-SA 3.0 (wajib mencantumkan sumber & lisensi)",
+      "status": "draft_tashih"
+    }
+  ]
+}

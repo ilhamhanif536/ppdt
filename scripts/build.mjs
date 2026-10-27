@@ -44,7 +44,11 @@ function renderNav(currentPath) {
     .map((item) => {
       const children = item.children || [];
       if (!children.length) {
-        const isCurrent = item.path === currentPath;
+        const isCurrent =
+          item.path === currentPath ||
+          (item.matchPrefix === true &&
+            item.path !== "/" &&
+            currentPath.startsWith(item.path));
         return `<a class="nav-link" href="${item.path}"${isCurrent ? ' aria-current="page"' : ""}>${esc(item.label)}</a>`;
       }
       const isCurrentGroup =
@@ -272,6 +276,10 @@ if (existsSync(path.join(root, "public", "images"))) {
 if (existsSync(path.join(root, "public", "favicon.svg"))) {
   await cp(path.join(root, "public", "favicon.svg"), path.join(out, "favicon.svg"));
 }
+// public/data/* → dist/data/* (kumpulan data teks Majmu', mis. tahlil & dzikir)
+if (existsSync(path.join(root, "public", "data"))) {
+  await cp(path.join(root, "public", "data"), path.join(out, "data"), { recursive: true });
+}
 
 // fingerprint CSS & JS
 const css = await readFile(path.join(out, "assets", "site.css"), "utf8");
@@ -284,6 +292,18 @@ await writeFile(path.join(out, "assets", `site.${cssHash}.css`), css, "utf8");
 await writeFile(path.join(out, "assets", `site.${jsHash}.js`), js, "utf8");
 await rm(path.join(out, "assets", "site.css"));
 await rm(path.join(out, "assets", "site.js"));
+
+// Fingerprint aset khusus Majmu' (nama file tetap di sumber, di-hash saat build)
+const majmuAssets = {};
+for (const nama of ["majmu.css", "majmu.js"]) {
+  const asal = path.join(out, "assets", nama);
+  if (!existsSync(asal)) continue;
+  const isi = await readFile(asal, "utf8");
+  const tujuan = `/assets/majmu.${hash8(isi)}.${nama.split(".").pop()}`;
+  await writeFile(path.join(out, "assets", path.basename(tujuan)), isi, "utf8");
+  await rm(asal);
+  majmuAssets[nama] = tujuan;
+}
 
 const pages = await collectPages(src);
 if (!pages.some((p) => p.route === "/")) throw new Error("Halaman beranda (src/index.html) tidak ditemukan.");
@@ -320,7 +340,7 @@ ${content}
 </main>
 ${footerTpl}`;
 
-  const final = html
+  let final = html
     .replaceAll("{{PAGE_TITLE}}", esc(meta.title))
     .replaceAll("{{PAGE_DESCRIPTION}}", esc(meta.description))
     .replaceAll("{{PAGE_PATH}}", esc(page.route))
@@ -339,6 +359,14 @@ ${footerTpl}`;
     .replaceAll("{{NAV_ITEMS}}", nav)
     .replaceAll("{{CSS_FILE}}", CSS_FILE)
     .replaceAll("{{JS_FILE}}", JS_FILE);
+
+  // Tautan aset Majmu' di halaman diganti ke nama ber-fingerprint
+  if (majmuAssets["majmu.css"]) {
+    final = final.replace(/\/assets\/majmu\.css(?:\?v=[^"]*)?/g, majmuAssets["majmu.css"]);
+  }
+  if (majmuAssets["majmu.js"]) {
+    final = final.replace(/\/assets\/majmu\.js(?:\?v=[^"]*)?/g, majmuAssets["majmu.js"]);
+  }
 
   // route → path keluaran
   let destRel;

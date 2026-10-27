@@ -1,0 +1,223 @@
+/* ============================================================
+   MAJMU.CSS — bagian Majmu' Darut Thalibin Telang
+   Memakai token desain yang sama dengan site.css (hijau modern).
+   Cakupan: beranda /majmu/, pita pengantar di beranda utama,
+   dan halaman pembaca /majmu/baca/.
+   ============================================================ */
+
+/* ---------- Beranda Majmu' : grid kartu ---------- */
+.mj-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.mj-card{
+  position:relative;display:flex;flex-direction:column;gap:10px;
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:26px 24px;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;
+  min-height:190px;
+}
+a.mj-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:#CBE4D6}
+.mj-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.mj-num{
+  width:46px;height:46px;flex:none;border-radius:14px;display:grid;place-items:center;
+  background:var(--tint);color:var(--green-deep);font-weight:800;font-size:1.05rem;
+  font-family:"Amiri","Scheherazade New",serif;
+}
+.mj-num.ico{font-family:inherit;font-size:1.25rem}
+.mj-card h3{font-size:1.12rem;font-weight:800;color:var(--green-ink);letter-spacing:-.01em}
+.mj-card .mj-ar{
+  font-family:"Amiri Quran","Amiri","Scheherazade New",serif;
+  font-size:1.7rem;color:var(--green-deep);direction:rtl;text-align:right;line-height:1.9;
+}
+.mj-card p{font-size:.88rem;color:var(--muted);margin:0}
+.mj-meta{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto;padding-top:8px}
+.mj-meta span{
+  font-size:.72rem;font-weight:700;color:var(--green-600);background:var(--tint);
+  border-radius:999px;padding:5px 11px;
+}
+.mj-go{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:700;color:var(--green-600)}
+.mj-go svg{transition:transform .2s ease}
+a.mj-card:hover .mj-go svg{transform:translateX(4px)}
+.mj-card--soon{opacity:.72;background:var(--tint-2)}
+.mj-ribbon{
+  position:absolute;top:16px;right:16px;font-size:.68rem;font-weight:800;letter-spacing:.06em;
+  text-transform:uppercase;color:var(--gold-deep);background:var(--gold-tint);
+  border:1px solid #EFE3C2;border-radius:999px;padding:5px 11px;
+}
+.mj-lanjut{
+  display:flex;align-items:center;gap:16px;background:linear-gradient(130deg,var(--tint),#F2FAF5);
+  border:1px solid #CFE7DA;border-radius:var(--radius);padding:20px 24px;margin-bottom:26px;
+}
+.mj-lanjut-ico{
+  width:50px;height:50px;flex:none;border-radius:14px;background:var(--green);color:#fff;
+  display:grid;place-items:center;font-size:1.4rem;
+}
+.mj-lanjut[hidden]{display:none}
+.mj-lanjut-body{flex:1;min-width:0}
+.mj-lanjut-body strong{display:block;color:var(--green-ink);font-weight:800}
+.mj-lanjut-body span{font-size:.86rem;color:var(--muted)}
+
+/* ---------- Halaman pembaca ---------- */
+.mj-reader{--mj-ar-size:1.85rem;padding-bottom:20px}
+.mj-reader.no-latin .mj-latin{display:none}
+.mj-reader.no-terjemah .mj-terjemah{display:none}
+
+.mj-toolbar{
+  position:sticky;top:72px;z-index:60;background:rgba(255,255,255,.94);
+  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line);padding:12px 0;margin-bottom:26px;
+}
+.mj-toolbar-inner{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.mj-toolbar .mj-back{
+  display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:700;
+  color:var(--green-600);background:var(--tint);border-radius:999px;padding:9px 16px;
+}
+.mj-toolbar .mj-back:hover{background:#DDF0E6}
+.mj-toolbar-title{font-weight:800;color:var(--green-ink);margin-right:auto;font-size:.98rem}
+.mj-btn{
+  display:inline-flex;align-items:center;gap:7px;font-size:.82rem;font-weight:700;
+  color:#33493E;background:#fff;border:1px solid var(--line);border-radius:999px;
+  padding:9px 14px;box-shadow:var(--shadow-sm);transition:border-color .2s ease,color .2s ease,background .2s ease;
+}
+.mj-btn:hover{border-color:var(--green);color:var(--green-600)}
+.mj-btn.is-on{background:var(--green);border-color:var(--green);color:#fff}
+.mj-btn svg{width:15px;height:15px}
+.mj-size-group{display:inline-flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;box-shadow:var(--shadow-sm)}
+.mj-size-group button{
+  font-weight:800;color:#33493E;background:#fff;padding:9px 13px;font-size:.85rem;
+}
+.mj-size-group button+button{border-left:1px solid var(--line)}
+.mj-size-group button.is-on{background:var(--tint);color:var(--green-600)}
+
+.mj-surah-head{
+  text-align:center;background:linear-gradient(150deg,var(--green-deep),var(--green-ink));
+  color:#fff;border-radius:var(--radius);padding:38px 26px;margin-bottom:26px;position:relative;overflow:hidden;
+}
+.mj-surah-head::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.4;
+  background-image:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1px);background-size:22px 22px;
+}
+.mj-surah-head>*{position:relative;z-index:1}
+.mj-surah-head .mj-ar-name{
+  font-family:"Amiri Quran","Amiri","Scheherazade New",serif;font-size:2.9rem;line-height:1.7;
+  color:#fff;direction:rtl;
+}
+.mj-surah-head h1{font-size:1.6rem;font-weight:800;margin:4px 0 6px}
+.mj-surah-head p{color:#C4D9CD;font-size:.9rem}
+.mj-surah-meta{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:16px}
+.mj-surah-meta span{
+  font-size:.76rem;font-weight:700;background:rgba(255,255,255,.1);
+  border:1px solid rgba(255,255,255,.16);color:#EAF3EE;border-radius:999px;padding:6px 13px;
+}
+.mj-bismillah{
+  text-align:center;font-family:"Amiri Quran","Amiri","Scheherazade New",serif;
+  font-size:2.1rem;color:var(--green-deep);direction:rtl;padding:18px 0 30px;line-height:2;
+}
+
+/* ---------- Kartu ayah / bacaan ---------- */
+.mj-ayah{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 26px;margin-bottom:16px;scroll-margin-top:140px;
+}
+.mj-ayah-head{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.mj-ayah-badge{
+  width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center;
+  background:var(--tint);color:var(--green-deep);font-weight:800;font-size:.85rem;position:relative;
+}
+.mj-ayah-title{font-weight:800;color:var(--green-ink);font-size:.95rem}
+.mj-ayah-actions{margin-left:auto;display:flex;gap:8px}
+.mj-icon-btn{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  border:1px solid var(--line);background:#fff;color:var(--green-600);
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.mj-icon-btn:hover{background:var(--tint);border-color:var(--green)}
+.mj-icon-btn svg{width:17px;height:17px}
+.mj-arabic{
+  font-family:"Amiri Quran","Amiri","Scheherazade New",serif;
+  font-size:var(--mj-ar-size);line-height:2.15;color:var(--green-ink);
+  direction:rtl;text-align:right;word-spacing:.12em;
+}
+.mj-latin{
+  margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);
+  font-size:.92rem;font-style:italic;color:#46604F;line-height:1.7;
+}
+.mj-latin::before{content:"Latin: ";font-style:normal;font-weight:800;color:var(--green-600)}
+.mj-terjemah{margin-top:10px;font-size:.95rem;color:#33493E;line-height:1.75}
+.mj-terjemah::before{content:"Terjemah: ";font-weight:800;color:var(--green-600)}
+.mj-tentang{
+  margin-top:12px;background:var(--gold-tint);border:1px solid #EFE3C2;border-left:4px solid var(--gold);
+  border-radius:10px;padding:11px 15px;font-size:.85rem;color:#5C4A22;
+}
+
+/* ---------- Heading grup (tahlil, dzikir) ---------- */
+.mj-group-head{margin:34px 0 16px;display:flex;align-items:center;gap:14px}
+.mj-group-head:first-child{margin-top:8px}
+.mj-group-head h2{font-size:1.25rem;font-weight:800;color:var(--green-ink);letter-spacing:-.01em}
+.mj-group-head .mj-line{flex:1;height:1px;background:var(--line)}
+
+/* ---------- Lencana status verifikasi bacaan ---------- */
+.mj-pill{flex:none;font-size:.72rem;font-weight:800;letter-spacing:.02em;border-radius:999px;padding:6px 13px;white-space:nowrap}
+.mj-pill.ok{background:var(--tint);color:var(--green-600);border:1px solid #BBD9C8}
+.mj-pill.draft{background:var(--gold-tint);color:var(--gold-deep);border:1px solid #EFE3C2}
+.mj-sumber-kecil{margin-top:10px;line-height:1.6}
+
+/* Penanda jumlah pengulangan & catatan tashih */
+.mj-ulang{
+  flex:none;font-size:.72rem;font-weight:800;color:var(--gold-deep);
+  background:var(--gold-tint);border:1px solid #EFE3C2;border-radius:999px;padding:6px 12px;
+}
+.mj-tashih-note{
+  background:var(--gold-tint);border:1px solid #EFE3C2;border-left:4px solid var(--gold);
+  border-radius:12px;padding:14px 18px;font-size:.88rem;color:#5C4A22;margin:0 0 20px;line-height:1.7;
+}
+.mj-tashih-note strong{color:var(--gold-deep)}
+.mj-group-desc{color:var(--muted);font-size:.9rem;margin:-6px 0 16px}
+
+/* ---------- Konten prosa (Dhuha) ---------- */
+.mj-prose{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 32px;margin-bottom:18px}
+.mj-prose h2{font-size:1.2rem;font-weight:800;color:var(--green-ink);margin:24px 0 10px}
+.mj-prose h2:first-child{margin-top:0}
+.mj-prose p{color:#33493E;line-height:1.8;margin-bottom:12px}
+.mj-prose ol{margin:0 0 14px;padding-left:22px;display:flex;flex-direction:column;gap:10px;color:#33493E;line-height:1.7}
+.mj-niat-box{background:var(--tint);border:1px solid #CFE7DA;border-radius:14px;padding:20px 22px;margin:12px 0}
+.mj-niat-box .mj-arabic{font-size:1.7rem;margin-bottom:10px}
+.mj-niat-box .mj-latin,.mj-niat-box .mj-terjemah{border:0;padding:0;margin-top:8px}
+
+/* ---------- Status: memuat & galat ---------- */
+.mj-status{
+  text-align:center;padding:70px 24px;border:1px dashed var(--line);border-radius:var(--radius);
+  color:var(--muted);background:var(--tint-2);
+}
+.mj-status .mj-spin{
+  width:42px;height:42px;margin:0 auto 16px;border-radius:50%;
+  border:3px solid var(--line);border-top-color:var(--green);animation:mj-rot .9s linear infinite;
+}
+@keyframes mj-rot{to{transform:rotate(360deg)}}
+.mj-status h2{color:var(--green-ink);font-size:1.2rem;font-weight:800;margin-bottom:8px}
+.mj-status p{max-width:48ch;margin:0 auto 18px}
+.mj-cache-note{
+  display:inline-flex;align-items:center;gap:7px;font-size:.78rem;font-weight:700;
+  color:var(--green-600);background:var(--tint);border-radius:999px;padding:6px 13px;margin-top:14px;
+}
+
+/* ---------- Footer sumber ---------- */
+.mj-sumber{
+  background:var(--tint-2);border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 28px;margin-top:30px;font-size:.88rem;color:var(--muted);
+}
+.mj-sumber h2{font-size:1rem;font-weight:800;color:var(--green-ink);margin-bottom:10px}
+.mj-sumber a{color:var(--green-600);font-weight:700;text-decoration:underline;text-underline-offset:3px}
+.mj-sumber ul{display:flex;flex-direction:column;gap:7px;margin-top:8px}
+
+/* ---------- Responsif ---------- */
+@media (max-width:1020px){
+  .mj-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:760px){
+  .mj-grid{grid-template-columns:1fr}
+  .mj-toolbar{top:72px}
+  .mj-toolbar-inner{gap:8px}
+  .mj-toolbar-title{order:-1;flex-basis:100%;margin-right:0}
+  .mj-reader{--mj-ar-size:1.6rem}
+  .mj-ayah{padding:20px 18px}
+  .mj-prose{padding:24px 20px}
+  .mj-surah-head .mj-ar-name{font-size:2.3rem}
+}
