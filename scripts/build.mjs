@@ -105,15 +105,41 @@ function renderOrgSections() {
 function renderJadwal() {
   const list = siteData.jadwalKajian || [];
   if (!list.length) return "";
-  return `<div class="schedule-grid">${list
+  // Kelompokkan berdasarkan "waktu" (mis. Ba'da Subuh / Ba'da Maghrib),
+  // urutan mengikuti kemunculan pertama di data.
+  const groups = [];
+  const byWaktu = new Map();
+  for (const j of list) {
+    const key = j.waktu || "Jadwal Rutin";
+    if (!byWaktu.has(key)) {
+      const g = { waktu: key, rows: [] };
+      byWaktu.set(key, g);
+      groups.push(g);
+    }
+    byWaktu.get(key).rows.push(j);
+  }
+  const blocks = groups
     .map(
-      (j) => `<article class="schedule-card">
-        <span class="schedule-day">${esc(j.hari)}</span>
-        <h3>${esc(j.waktu)}</h3>
-        <p>${esc(j.materi)}</p>
-      </article>`
+      (g) => `<div class="schedule-group">
+        <h3 class="schedule-group-title">${esc(g.waktu)}</h3>
+        <div class="schedule-table">
+          ${g.rows
+            .map((j) => {
+              const alt = /alternatif/i.test(j.hari);
+              return `<div class="schedule-row${alt ? " schedule-row--alt" : ""}">
+                <span class="schedule-day">${esc(j.hari)}</span>
+                <div class="schedule-main"><strong>${esc(j.materi)}</strong>${j.pemateri ? `<span>${esc(j.pemateri)}</span>` : ""}</div>
+              </div>`;
+            })
+            .join("")}
+        </div>
+      </div>`
     )
-    .join("")}</div>`;
+    .join("");
+  const note = siteData.jadwalCatatan
+    ? `<p class="schedule-note">${esc(siteData.jadwalCatatan)}</p>`
+    : "";
+  return `<div class="schedule-groups">${blocks}</div>${note}`;
 }
 
 function renderKontakItems() {

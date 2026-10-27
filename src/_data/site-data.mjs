@@ -80,7 +80,7 @@ const siteData = {
       anggota: [
         { jabatan: "Dewan Pembina Yayasan", nama: "Drs. KH. Mohammad Dja'far Al-Habary, M.Pdi & Ir. KH. Mondir Rohfi'i" },
         { jabatan: "Ketua Yayasan", nama: "Ir. KH. Taufiqurrahman Hasbullah, M.Kes" },
-        { jabatan: "Sekretaris Yayasan", nama: "Ach. Khozaimi, S.Kom., M.Kom" },
+        { jabatan: "Sekretaris Yayasan", nama: "Dr. Ach. Khozaimi, S.Kom., M.Kom" },
         { jabatan: "Bendahara Yayasan", nama: "Nasihul Abror, S.AS" },
       ],
     },
@@ -98,7 +98,7 @@ const siteData = {
       keterangan: "Koordinator dan staf pembinaan santri putra.",
       anggota: [
         { jabatan: "Koordinator Pondok Putra", nama: "Muhammad Ridho Alfisyahri" },
-        { jabatan: "Kesekretariatan", nama: "Aimul Muzammil" },
+        { jabatan: "Kesekretariatan", nama: "Ainul Muzammil" },
         { jabatan: "Keuangan", nama: "Muhammad Hanif" },
         { jabatan: "Kominfo", nama: "Agus Salin" },
         { jabatan: "Keamanan", nama: "" },
@@ -111,7 +111,7 @@ const siteData = {
       judul: "Seksi Usaha / Kepontren",
       keterangan: "Pengelola usaha dan operasional kepontren.",
       anggota: [
-        { jabatan: "Seksi Usaha / Kepontren", nama: "Aimul Muzammil" },
+        { jabatan: "Seksi Usaha / Kepontren", nama: "Ainul Muzammil" },
       ],
     },
     {
@@ -128,12 +128,35 @@ const siteData = {
     },
   ],
 
-  // ---------- Jadwal kajian rutin ----------
+  // ---------- Jadwal kajian & kegiatan rutin ----------
+  // Sumber: poster resmi "KEGIATAN — Jadwal Kajian dan Kegiatan
+  // Ba'da Subuh" dan "Ba'da Maghrib". Data dikelompokkan otomatis
+  // berdasarkan "waktu"; baris "Alternatif" ditandai warna emas.
+  // Contoh: { hari, waktu, materi, pemateri? } — pemateri opsional.
   jadwalKajian: [
-    { hari: "Setiap Hari", waktu: "Ba'da Maghrib", materi: "Kajian kitab kuning bersama" },
-    { hari: "Sabtu", waktu: "Ba'da Isya", materi: "Tahsin & tajwid" },
-    { hari: "Ahad", waktu: "Ba'da Subuh", materi: "Kajian tematik keislaman" },
+    // ===== Ba'da Subuh =====
+    { hari: "Senin", waktu: "Ba'da Subuh", materi: "Kajian Tematik Fiqih", pemateri: "Nyai Shofiyun Nahidloh" },
+    { hari: "Selasa", waktu: "Ba'da Subuh", materi: "Kajian Nahwu & Shorof", pemateri: "Ustadz Hafi" },
+    { hari: "Rabu", waktu: "Ba'da Subuh", materi: "Kajian Syu'abul Iman", pemateri: "Abah Auhadillah" },
+    { hari: "Rabu (Alternatif)", waktu: "Ba'da Subuh", materi: "Kajian Nahwu & Shorof", pemateri: "Ustadz Nawafil" },
+    { hari: "Kamis", waktu: "Ba'da Subuh", materi: "Kajian Hadist", pemateri: "KH. Muhammad Dja'far Al-Habary" },
+    { hari: "Jum'at", waktu: "Ba'da Subuh", materi: "Mengaji Al-Kahfi", pemateri: "KH. Taufiqurrahman Hasbullah" },
+    { hari: "Sabtu", waktu: "Ba'da Subuh", materi: "Kelas Bahasa Inggris", pemateri: "Miss Ulfa" },
+    { hari: "Minggu", waktu: "Ba'da Subuh", materi: "Tahsinul Qur'an atau Majmu", pemateri: "KH. Taufiqurrahman Hasbullah" },
+    // ===== Ba'da Maghrib =====
+    { hari: "Senin", waktu: "Ba'da Maghrib", materi: "Tahsinul Qur'an", pemateri: "Santri Mu'allim/ah" },
+    { hari: "Selasa", waktu: "Ba'da Maghrib", materi: "Kajian Nashoihul 'Ibad", pemateri: "Abah Ach. Khozaimi" },
+    { hari: "Rabu", waktu: "Ba'da Maghrib", materi: "Kajian Rutin di Masjid", pemateri: "Pemateri Kondisional" },
+    { hari: "Rabu (Alternatif)", waktu: "Ba'da Maghrib", materi: "Kajian Nahwu & Shorof", pemateri: "Ustadz Nawafil" },
+    { hari: "Kamis", waktu: "Ba'da Maghrib", materi: "Yasin dan Tahlil (Putra) · Bergantian Diba' / Muhadoroh" },
+    { hari: "Jum'at", waktu: "Ba'da Maghrib", materi: "Muhadoroh (Putra) · Tahsinul Qur'an (Putri)" },
+    { hari: "Sabtu", waktu: "Ba'da Maghrib", materi: "Diba' / Hadroh (Putra) · Majmu (Putri)" },
+    { hari: "Minggu", waktu: "Ba'da Maghrib", materi: "Ratib Al-Hadad (Putra) · Majmu (Putri)" },
   ],
+
+  // Catatan di bawah tabel jadwal (kosongkan "" jika tidak ingin ditampilkan).
+  jadwalCatatan:
+    "Kegiatan yang tidak terlaksana sesuai jadwal digantikan Tahsinul Qur'an atau membaca Majmu mandiri.",
 };
 
 export default siteData;
