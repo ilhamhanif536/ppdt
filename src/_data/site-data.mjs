@@ -29,8 +29,8 @@ const siteData = {
     alamat:
       "Jln. Masjid Telang Indah, RT.02/RW.03, Desa Telang, Kecamatan Kamal, Kabupaten Bangkalan, Jawa Timur",
     telepon: "",            // contoh: "031-1234567"
-    whatsapp: "",           // format internasional TANPA tanda + atau spasi, contoh: "6281234567890"
-    email: "",              // contoh: "info@darutthalibin.id"
+    whatsapp: "6285816175603",           // format internasional TANPA tanda + atau spasi, contoh: "6281234567890"
+    email: "darutthalibin410@gmail.com",              // contoh: "info@darutthalibin.id"
     jamLayanan: "Senin – Sabtu, 08.00 – 16.00 WIB",
     // Query peta untuk Google Maps (diubah setelah titik koordinat pasti dikonfirmasi)
     petaQuery: "Pondok Pesantren Darut Thalibin, Telang, Kamal, Bangkalan",
