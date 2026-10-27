@@ -71,40 +71,59 @@ const siteData = {
   ],
 
   // ---------- Struktur organisasi ----------
-  // Isi nama setelah data resmi diterima; bagian dengan array kosong
-  // otomatis disembunyikan.
+  // Sumber: poster resmi "STRUKTUR ORGANISASI PP. DARUT THALIBIN 2026".
+  // Anggota dengan nama kosong otomatis tampil sebagai "Akan diumumkan".
   organisasi: [
     {
       judul: "Yayasan",
-      keterangan: "Struktur resmi yayasan akan diperbarui setelah data final diterima.",
+      keterangan: "Struktur resmi Yayasan PP. Darut Thalibin periode 2026.",
       anggota: [
-        { jabatan: "Ketua Yayasan", nama: "" },
+        { jabatan: "Dewan Pembina Yayasan", nama: "Drs. KH. Mohammad Dja'far Al-Habary, M.Pdi & Ir. KH. Mondir Rohfi'i" },
+        { jabatan: "Ketua Yayasan", nama: "Ir. KH. Taufiqurrahman Hasbullah, M.Kes" },
+        { jabatan: "Sekretaris Yayasan", nama: "Ach. Khozaimi, S.Kom., M.Kom" },
+        { jabatan: "Bendahara Yayasan", nama: "Nasihul Abror, S.AS" },
       ],
     },
     {
-      judul: "Pengasuh Pesantren",
-      keterangan: "Profil pengasuh akan ditampilkan setelah dikonfirmasi.",
+      judul: "Devisi",
+      keterangan: "Devisi pelaksana program pondok pesantren.",
       anggota: [
-        { jabatan: "Pengasuh Pesantren", nama: "" },
+        { jabatan: "Devisi SDM & Kurikulum", nama: "Auhadillah Azizi, S.Psi., M.Pi" },
+        { jabatan: "Devisi Sarana Prasarana & Pemberdayaan Ekonomi", nama: "Dr. Ulfatun Nahdhiyah" },
+        { jabatan: "Devisi Humas", nama: "Shofiyun Nahdidah, S.Ag., M.H.I" },
       ],
     },
     {
-      judul: "Pengurus Putra",
-      keterangan: "Sesuai struktur pengurus yang diberikan pengelola.",
+      judul: "Pondok Putra",
+      keterangan: "Koordinator dan staf pembinaan santri putra.",
       anggota: [
-        { jabatan: "Koordinator Santri Putra", nama: "Muhammad Ridho A." },
-        { jabatan: "Bidang Kesekretariatan", nama: "Ainul Muzammil" },
-        { jabatan: "Bidang Keuangan", nama: "Muhammad Hanif" },
-        { jabatan: "Bidang Kominfo", nama: "Agus Salim" },
+        { jabatan: "Koordinator Pondok Putra", nama: "Muhammad Ridho Alfisyahri" },
+        { jabatan: "Kesekretariatan", nama: "Aimul Muzammil" },
+        { jabatan: "Keuangan", nama: "Muhammad Hanif" },
+        { jabatan: "Kominfo", nama: "Agus Salin" },
+        { jabatan: "Keamanan", nama: "" },
+        { jabatan: "Kebersihan", nama: "" },
+        { jabatan: "Humas", nama: "" },
+        { jabatan: "Pendidikan", nama: "" },
       ],
     },
     {
-      judul: "Pengurus Putri",
-      keterangan: "Sesuai struktur pengurus yang diberikan pengelola.",
+      judul: "Seksi Usaha / Kepontren",
+      keterangan: "Pengelola usaha dan operasional kepontren.",
       anggota: [
-        { jabatan: "Bidang Keuangan & Sarpras", nama: "Nurul Fadilah" },
-        { jabatan: "Bidang Peribadatan & Kegiatan", nama: "Muslihah" },
-        { jabatan: "Bidang Kebersihan & Keamanan", nama: "Putri Fadillah W." },
+        { jabatan: "Seksi Usaha / Kepontren", nama: "Aimul Muzammil" },
+      ],
+    },
+    {
+      judul: "Pondok Putri",
+      keterangan: "Koordinator dan staf pembinaan santri putri.",
+      anggota: [
+        { jabatan: "Koordinator Pondok Putri", nama: "" },
+        { jabatan: "Kesekretariatan & Keuangan", nama: "Nurul Fadilah" },
+        { jabatan: "Keamanan", nama: "Imroatun Mufida" },
+        { jabatan: "Kebersihan", nama: "Putri Fadilla Wulandari" },
+        { jabatan: "Kominfo", nama: "Indah Wulandari" },
+        { jabatan: "Kegiatan & Peribadatan", nama: "Muslihah" },
       ],
     },
   ],
