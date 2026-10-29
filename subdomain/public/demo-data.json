@@ -1,0 +1,212 @@
+{
+ "ok": true,
+ "periode": {
+  "bulan": "2026-10",
+  "label": "Oktober 2026",
+  "awal": "2026-10-01",
+  "akhir": "2026-10-29",
+  "berjalan": true,
+  "sebelumnya": "2026-09",
+  "berikutnya": "2026-11"
+ },
+ "kop": {
+  "pesantren": "Pondok Pesantren PPDT",
+  "nama": "Ust. Ahmad",
+  "jabatan": "PENGASUH",
+  "dibuat": "2026-10-29T07:53:11.413Z"
+ },
+ "kpi": {
+  "persen": 97,
+  "hadir": 1146,
+  "total": 1182,
+  "alpha": 36,
+  "izin": 0,
+  "santri": 12,
+  "putra": 6,
+  "putri": 6
+ },
+ "kelompok": [
+  {
+   "nama": "Putra",
+   "persen": 94,
+   "hadir": 564,
+   "alpha": 36,
+   "mode": "PANTAU"
+  },
+  {
+   "nama": "Putri",
+   "persen": 100,
+   "hadir": 582,
+   "alpha": 0,
+   "mode": "NYATAKAN"
+  }
+ ],
+ "perAktivitas": [
+  {
+   "label": "Shalat Subuh & Maghrib",
+   "persen": 97,
+   "hadir": 458,
+   "alpha": 16,
+   "izin": 0,
+   "total": 474
+  },
+  {
+   "label": "Kajian Subuh & Maghrib",
+   "persen": 96,
+   "hadir": 454,
+   "alpha": 20,
+   "izin": 0,
+   "total": 474
+  },
+  {
+   "label": "Shalat Isya",
+   "persen": 100,
+   "hadir": 234,
+   "alpha": 0,
+   "izin": 0,
+   "total": 234
+  }
+ ],
+ "tren": [
+  {
+   "tanggal": "2026-10-07",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-08",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-09",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-10",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-11",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-12",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-13",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-14",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-15",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-16",
+   "persen": 100,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-17",
+   "persen": 85,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-18",
+   "persen": 85,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-19",
+   "persen": 85,
+   "sel": 60
+  },
+  {
+   "tanggal": "2026-10-20",
+   "persen": 79,
+   "sel": 42
+  }
+ ],
+ "catat": {
+  "persen": 69,
+  "beres": 79,
+  "wajib": 114
+ },
+ "uang": {
+  "ada": false
+ },
+ "izin": [
+  {
+   "label": "Pulang",
+   "jumlah": 1,
+   "sesi": 3,
+   "santri": 1,
+   "persen": 50
+  },
+  {
+   "label": "Sakit",
+   "jumlah": 1,
+   "sesi": 1,
+   "santri": 1,
+   "persen": 50
+  }
+ ],
+ "alert": [
+  {
+   "tipe": "TIDAK_DICATAT",
+   "tingkat": "kritis",
+   "judul": "Putra · Subuh belum dicatat 3 hari",
+   "detail": "Perlu diingatkan ke pengurus piket."
+  },
+  {
+   "tipe": "TIDAK_DICATAT",
+   "tingkat": "kritis",
+   "judul": "Putri · Subuh belum dicatat 3 hari",
+   "detail": "Perlu diingatkan ke pengurus piket."
+  }
+ ],
+ "terendah": [
+  {
+   "nama": "Putra 1",
+   "kamar": "K-1",
+   "persen": 92,
+   "alpha": 8
+  },
+  {
+   "nama": "Putra 2",
+   "kamar": "K-1",
+   "persen": 92,
+   "alpha": 8
+  },
+  {
+   "nama": "Putra 3",
+   "kamar": "K-1",
+   "persen": 92,
+   "alpha": 8
+  },
+  {
+   "nama": "Putra 4",
+   "kamar": "K-1",
+   "persen": 92,
+   "alpha": 8
+  },
+  {
+   "nama": "Putra 5",
+   "kamar": "K-1",
+   "persen": 96,
+   "alpha": 4
+  }
+ ]
+}

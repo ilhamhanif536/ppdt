@@ -1,0 +1,33 @@
+# ============================================================================
+# PPDT — situs sistem pondok (sistem.darutthalibin.web.id)
+# Deploy: Netlify, publish = public, functions = netlify/functions
+# ============================================================================
+
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+# Semua panggilan /api diarahkan ke satu fungsi jembatan ke Apps Script.
+[[redirects]]
+  from = "/api"
+  to = "/.netlify/functions/api"
+  status = 200
+  force = true
+
+# Kalau ada yang membuka alamat lama GAS langsung, tidak perlu diapa-apakan.
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+    # token bisa ada di URL pada kunjungan pertama — jangan bocor ke situs lain
+    Content-Security-Policy = "default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self'; base-uri 'none'; form-action 'none'; frame-ancestors 'self'"
+
+[[headers]]
+  for = "/index.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+# Netlify otomatis mengurus HTTPS (Let's Encrypt) setelah domain ditambahkan.

@@ -1,0 +1,429 @@
+{
+ "hari": {
+  "tanggal": "2026-11-01",
+  "tanggalPanjang": "Minggu, 1 November 2026",
+  "kritis": 1,
+  "saran": 3,
+  "validasi": [],
+  "petugas": "Ridho",
+  "blok": [
+   {
+    "kelompok": "Putra",
+    "sesi": "Subuh",
+    "jam": "18:50–06:00",
+    "status": "DITUTUP",
+    "menitLewat": 125,
+    "mode": "PANTAU",
+    "petugas": "Ridho",
+    "jumlahSantri": 29,
+    "tercatat": 29,
+    "belum": [],
+    "aktivitas": [
+     {
+      "kode": "act1",
+      "label": "Shalat Subuh",
+      "hadir": 27,
+      "alpha": 2,
+      "izin": 0,
+      "kosong": 0
+     },
+     {
+      "kode": "act2",
+      "label": "Kajian Subuh",
+      "hadir": 24,
+      "alpha": 5,
+      "izin": 0,
+      "kosong": 0
+     }
+    ],
+    "temuan": []
+   },
+   {
+    "kelompok": "Putra",
+    "sesi": "Maghrib-Isya",
+    "jam": "15:10–18:50",
+    "status": "BERJALAN",
+    "menitLewat": 0,
+    "mode": "PANTAU",
+    "petugas": "Ridho",
+    "jumlahSantri": 29,
+    "tercatat": 21,
+    "belum": [
+     {
+      "id": "MHS-022",
+      "nama": "Zaki Mubarok",
+      "kamar": "Kamar 2"
+     },
+     {
+      "id": "MHS-023",
+      "nama": "Slamet Riyadi",
+      "kamar": "Kamar 3"
+     },
+     {
+      "id": "MHS-024",
+      "nama": "Hafidz Amrullah",
+      "kamar": "Kamar 1"
+     },
+     {
+      "id": "MHS-025",
+      "nama": "Baihaqi",
+      "kamar": "Kamar 2"
+     },
+     {
+      "id": "MHS-026",
+      "nama": "Naufal Hakim",
+      "kamar": "Kamar 3"
+     },
+     {
+      "id": "MHS-027",
+      "nama": "Rizky Pratama",
+      "kamar": "Kamar 1"
+     },
+     {
+      "id": "MHS-028",
+      "nama": "Fajar Nugroho",
+      "kamar": "Kamar 2"
+     },
+     {
+      "id": "MHS-029",
+      "nama": "Yusuf Habibi",
+      "kamar": "Kamar 3"
+     }
+    ],
+    "aktivitas": [
+     {
+      "kode": "act1",
+      "label": "Shalat Maghrib",
+      "hadir": 21,
+      "alpha": 0,
+      "izin": 0,
+      "kosong": 8
+     },
+     {
+      "kode": "act2",
+      "label": "Kajian Maghrib",
+      "hadir": 19,
+      "alpha": 2,
+      "izin": 0,
+      "kosong": 8
+     },
+     {
+      "kode": "act3",
+      "label": "Shalat Isya",
+      "hadir": 0,
+      "alpha": 0,
+      "izin": 0,
+      "kosong": 29
+     }
+    ],
+    "temuan": []
+   },
+   {
+    "kelompok": "Putri",
+    "sesi": "Subuh",
+    "jam": "18:50–06:00",
+    "status": "DINYATAKAN",
+    "menitLewat": 130,
+    "mode": "NYATAKAN",
+    "petugas": "Muslihah",
+    "jumlahSantri": 31,
+    "tercatat": 31,
+    "belum": [],
+    "aktivitas": [
+     {
+      "kode": "act1",
+      "label": "Shalat Subuh",
+      "hadir": 30,
+      "alpha": 0,
+      "izin": 1,
+      "kosong": 0
+     },
+     {
+      "kode": "act2",
+      "label": "Kajian Subuh",
+      "hadir": 30,
+      "alpha": 0,
+      "izin": 1,
+      "kosong": 0
+     }
+    ],
+    "temuan": [
+     {
+      "kode": "SEMUA_HADIR_NYATAKAN",
+      "tingkat": "SARAN",
+      "pesan": "Diisi dengan cara \"dinyatakan\" dan hasilnya hampir semua hadir. Perlu dipastikan memang tidak ada yang alpha, bukan karena lupa menyebut."
+     }
+    ]
+   },
+   {
+    "kelompok": "Putri",
+    "sesi": "Maghrib-Isya",
+    "jam": "15:10–18:50",
+    "status": "KOSONG",
+    "menitLewat": 0,
+    "mode": "",
+    "petugas": "",
+    "jumlahSantri": 31,
+    "tercatat": 0,
+    "belum": [
+     {
+      "id": "P01",
+      "nama": "Nurul Fadilah",
+      "kamar": "Kamar 2"
+     },
+     {
+      "id": "P02",
+      "nama": "Imroatun Mufida",
+      "kamar": "Kamar 3"
+     },
+     {
+      "id": "P03",
+      "nama": "Fadilla Wulandari",
+      "kamar": "Kamar 1"
+     },
+     {
+      "id": "P04",
+      "nama": "Indah Wulandari",
+      "kamar": "Kamar 2"
+     },
+     {
+      "id": "P05",
+      "nama": "Muslihah",
+      "kamar": "Kamar 3"
+     },
+     {
+      "id": "P06",
+      "nama": "Alaika Zahra",
+      "kamar": "Kamar 1"
+     },
+     {
+      "id": "P07",
+      "nama": "Siti Aminah",
+      "kamar": "Kamar 2"
+     },
+     {
+      "id": "P08",
+      "nama": "Dewi Kartika",
+      "kamar": "Kamar 3"
+     },
+     {
+      "id": "P09",
+      "nama": "Laila Ramadhani",
+      "kamar": "Kamar 1"
+     },
+     {
+      "id": "P10",
+      "nama": "Hanifah Zahra",
+      "kamar": "Kamar 2"
+     }
+    ],
+    "aktivitas": [
+     {
+      "kode": "act1",
+      "label": "Shalat Maghrib",
+      "hadir": 0,
+      "alpha": 0,
+      "izin": 0,
+      "kosong": 31
+     },
+     {
+      "kode": "act2",
+      "label": "Kajian Maghrib",
+      "hadir": 0,
+      "alpha": 0,
+      "izin": 0,
+      "kosong": 31
+     },
+     {
+      "kode": "act3",
+      "label": "Shalat Isya",
+      "hadir": 0,
+      "alpha": 0,
+      "izin": 0,
+      "kosong": 31
+     }
+    ],
+    "temuan": [
+     {
+      "kode": "BELUM_DICATAT",
+      "tingkat": "KRITIS",
+      "pesan": "Sesi sudah berakhir 0 menit lalu, tapi belum ada satu pun catatan."
+     }
+    ]
+   }
+  ]
+ },
+ "keuangan": {
+  "sampai": "2026-11-30",
+  "label": "Senin, 30 November 2026",
+  "ringkas": {
+   "jumlahSantri": 12,
+   "kurang": 4,
+   "lebih": 3,
+   "lunas": 5,
+   "gratis": 0,
+   "totalTagihan": 16200000,
+   "totalDiterima": 16050000,
+   "totalKurang": 1050000,
+   "totalLebih": 900000
+  },
+  "daftar": [
+   {
+    "id": "MHS-005",
+    "nama": "Agus Salim",
+    "kamar": "Kamar 2",
+    "gender": "L",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 900000,
+    "sisa": 450000,
+    "status": "KURANG",
+    "bulanKurang": 3,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-008",
+    "nama": "Zaki Mubarok",
+    "kamar": "Kamar 2",
+    "gender": "L",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1050000,
+    "sisa": 300000,
+    "status": "KURANG",
+    "bulanKurang": 2,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-003",
+    "nama": "Ainul Muzammil",
+    "kamar": "Kamar 3",
+    "gender": "L",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1200000,
+    "sisa": 150000,
+    "status": "KURANG",
+    "bulanKurang": 1,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-011",
+    "nama": "Fadilla Wulandari",
+    "kamar": "Kamar 3",
+    "gender": "P",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1200000,
+    "sisa": 150000,
+    "status": "KURANG",
+    "bulanKurang": 1,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-001",
+    "nama": "Ahmad Fauzi",
+    "kamar": "Kamar 1",
+    "gender": "L",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1350000,
+    "sisa": 0,
+    "status": "LUNAS",
+    "bulanKurang": 0,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-004",
+    "nama": "M. Hanif",
+    "kamar": "Kamar 1",
+    "gender": "L",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1350000,
+    "sisa": 0,
+    "status": "LUNAS",
+    "bulanKurang": 0,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-007",
+    "nama": "Ilham Hanafi",
+    "kamar": "Kamar 1",
+    "gender": "L",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1350000,
+    "sisa": 0,
+    "status": "LUNAS",
+    "bulanKurang": 0,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-009",
+    "nama": "Nurul Fadilah",
+    "kamar": "Kamar 1",
+    "gender": "P",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1350000,
+    "sisa": 0,
+    "status": "LUNAS",
+    "bulanKurang": 0,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-012",
+    "nama": "Muslihah",
+    "kamar": "Kamar 1",
+    "gender": "P",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1350000,
+    "sisa": 0,
+    "status": "LUNAS",
+    "bulanKurang": 0,
+    "bulanDiMuka": 0
+   },
+   {
+    "id": "MHS-006",
+    "nama": "Fikri Ramadhan",
+    "kamar": "Kamar 3",
+    "gender": "L",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1500000,
+    "sisa": -150000,
+    "status": "LEBIH",
+    "bulanKurang": 0,
+    "bulanDiMuka": 1
+   },
+   {
+    "id": "MHS-002",
+    "nama": "Ridho Alfisyahri",
+    "kamar": "Kamar 2",
+    "gender": "L",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1650000,
+    "sisa": -300000,
+    "status": "LEBIH",
+    "bulanKurang": 0,
+    "bulanDiMuka": 2
+   },
+   {
+    "id": "MHS-010",
+    "nama": "Imroatun Mufida",
+    "kamar": "Kamar 2",
+    "gender": "P",
+    "tarif": 150000,
+    "tagihan": 1350000,
+    "bayar": 1800000,
+    "sisa": -450000,
+    "status": "LEBIH",
+    "bulanKurang": 0,
+    "bulanDiMuka": 3
+   }
+  ]
+ }
+}

@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#14476b">
+<title>Pengurus — PPDT</title>
+<style>
+  :root{--biru:#14476b;--biru2:#1c6ea4;--hijau:#1e8e3e;--kuning:#f29900;--merah:#d93025;
+    --abu:#5f6368;--garis:#e3e6ea;--bg:#f4f6f8;}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  body{margin:0;background:var(--bg);color:#1f2328;font-size:15px;line-height:1.45;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    -webkit-font-smoothing:antialiased}
+  .wrap{max-width:680px;margin:0 auto;padding:12px 12px 90px}
+  .kartu{background:#fff;border:1px solid var(--garis);border-radius:14px;padding:14px;margin-top:10px}
+  .judul{font-weight:700;font-size:15.5px;margin:0}
+  .sub{font-size:12px;color:var(--abu)}
+  button{font-family:inherit;font-size:14px;font-weight:600;border:0;border-radius:10px;
+    padding:11px 14px;cursor:pointer;background:var(--biru);color:#fff}
+  button:disabled{opacity:.5;cursor:default}
+  button.polos{background:#fff;color:var(--biru);border:1px solid var(--garis)}
+  button.hijau{background:var(--hijau)} button.merah{background:var(--merah)}
+  button.kecil{padding:7px 11px;font-size:12.5px;border-radius:9px}
+  input,select{width:100%;padding:12px 13px;border:1px solid #d5d9dd;border-radius:10px;
+    font-size:15px;font-family:inherit;background:#fbfcfd}
+  input:focus,select:focus{outline:none;border-color:var(--biru2);background:#fff}
+  label{display:block;font-size:12px;font-weight:600;color:#3c4043;margin:10px 0 5px}
+
+  /* kop */
+  header.kop{background:linear-gradient(150deg,#14476b,#1c6ea4);border-radius:14px;
+    padding:16px 16px 14px;color:#fff}
+  .kop .kecil{font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.78}
+  .kop h1{margin:3px 0 0;font-size:19px;font-weight:700}
+  .kop .baris{display:flex;justify-content:space-between;align-items:center;margin-top:10px;
+    padding-top:9px;border-top:1px solid rgba(255,255,255,.22);font-size:12px;opacity:.9}
+  .kop .baris a{color:#fff;text-decoration:underline;opacity:.9}
+
+  /* tab */
+  .tab{display:flex;gap:8px;margin-top:10px}
+  .tab button{flex:1;background:#fff;color:var(--abu);border:1px solid var(--garis)}
+  .tab button.aktif{background:var(--biru);color:#fff;border-color:var(--biru)}
+
+  /* sesi */
+  .sesi{border-left:4px solid var(--biru2)}
+  .sesi.tutup{border-left-color:var(--hijau)}
+  .sesi.lewat{border-left-color:var(--merah)}
+  .sesi .atas{display:flex;justify-content:space-between;align-items:flex-start;gap:8px}
+  .chip{display:inline-block;font-size:10.5px;font-weight:700;letter-spacing:.03em;
+    padding:3px 9px;border-radius:20px;text-transform:uppercase}
+  .chip.hijau{background:#e6f4ea;color:#137333}
+  .chip.merah{background:#fce8e6;color:#a50e0e}
+  .chip.kuning{background:#fef7e0;color:#8a5a00}
+  .chip.abu{background:#eef1f4;color:#5f6368}
+  .meter{height:7px;background:#e9ecef;border-radius:5px;overflow:hidden;margin:8px 0 6px}
+  .meter i{display:block;height:100%;background:var(--hijau);border-radius:5px}
+  .akt{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;color:var(--abu);margin-top:6px}
+  .akt b{color:#202124}
+
+  /* pilih nama */
+  .nama{display:inline-flex;align-items:center;gap:6px;background:#f1f4f7;border:1px solid var(--garis);
+    border-radius:20px;padding:7px 12px;font-size:13px;margin:0 6px 6px 0;cursor:pointer;user-select:none}
+  .nama.pilih{background:var(--biru);color:#fff;border-color:var(--biru)}
+  .temuan{font-size:12.5px;margin-top:7px;padding-left:10px;border-left:2px solid #fce8e6}
+  .temuan.saran{border-left-color:#fef7e0}
+
+  /* daftar uang */
+  .baris-daftar{display:flex;justify-content:space-between;gap:10px;padding:9px 0;
+    border-bottom:1px solid #f1f3f4;font-size:13.5px;align-items:baseline}
+  .baris-daftar:last-child{border-bottom:0}
+  .kanan{text-align:right;white-space:nowrap;font-weight:700}
+  .kpi{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .kpi .kartu{margin:0;padding:12px}
+  .kpi .label{font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--abu)}
+  .kpi .angka{font-size:19px;font-weight:700;margin-top:2px}
+
+  .tengah{text-align:center;padding:26px 10px;color:var(--abu);font-size:13.5px}
+  .kabar{position:fixed;left:12px;right:12px;bottom:14px;max-width:640px;margin:0 auto;
+    background:#202124;color:#fff;border-radius:12px;padding:12px 14px;font-size:13.5px;
+    box-shadow:0 8px 26px rgba(0,0,0,.25);display:none;z-index:50;white-space:pre-line}
+  .kabar.buka{display:block}
+  .kabar.gagal{background:#a50e0e}
+  footer{text-align:center;font-size:11.5px;color:var(--abu);margin-top:16px}
+</style>
+</head>
+<body>
+<div class="wrap" id="app">
+  <div class="tengah">Memuat…</div>
+</div>
+<div class="kabar" id="kabar"></div>
+
+<script>
+(function () {
+  'use strict';
+
+  var $app = document.getElementById('app');
+  var $kabar = document.getElementById('kabar');
+  var state = { token: null, nama: '', role: '', tab: 'absensi', hari: null, uang: null, pilih: {}, saring: 'semua', mode: 'PANTAU', cari: '', cariFokus: false, tglPilih: '' };
+
+  try { state.token = localStorage.getItem('ppdt_sesi'); } catch (e) {}
+  try { state.nama = localStorage.getItem('ppdt_nama') || ''; } catch (e) {}
+
+  function esc(s) {
+    return String(s === undefined || s === null ? '' : s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+  function rp(n) {
+    n = Math.round(Number(n) || 0);
+    var neg = n < 0;
+    var s = 'Rp ' + String(Math.abs(n)).replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+    return (neg ? '−' : '') + s;
+  }
+  function kabar(teks, gagal) {
+    $kabar.textContent = teks;
+    $kabar.className = 'kabar buka' + (gagal ? ' gagal' : '');
+    clearTimeout(kabar._t);
+    kabar._t = setTimeout(function () { $kabar.className = 'kabar'; }, gagal ? 6000 : 3500);
+  }
+
+  // pilihan nama disimpan supaya tidak hilang kalau HP mengunci layar / halaman ke-refresh
+  function simpanPilih() {
+    try {
+      localStorage.setItem('ppdt_pilih', JSON.stringify({ tanggal: state.tglPilih || '', pilih: state.pilih }));
+    } catch (e) {}
+  }
+  function muatPilih(tanggal) {
+    var raw = null;
+    try { raw = localStorage.getItem('ppdt_pilih'); } catch (e) {}
+    state.pilih = {};
+    if (!raw) return;
+    try {
+      var o = JSON.parse(raw);
+      if (o && o.tanggal === tanggal && o.pilih) state.pilih = o.pilih;
+    } catch (e) {}
+  }
+
+  // kotak tanya sederhana (pengganti prompt bawaan browser)
+  function dialog(judul, isiHtml, opsi) {
+    return new Promise(function (selesai) {
+      var wrap = document.createElement('div');
+      wrap.setAttribute('style', 'position:fixed;inset:0;background:rgba(15,23,42,.55);z-index:100;' +
+        'display:flex;align-items:flex-end;justify-content:center;padding:12px');
+      var kotak = document.createElement('div');
+      kotak.setAttribute('style', 'background:#fff;border-radius:16px;padding:16px;width:100%;max-width:520px;' +
+        'box-shadow:0 18px 40px rgba(0,0,0,.3);max-height:88vh;overflow:auto');
+      var html = '<div class="judul">' + esc(judul) + '</div>' +
+        '<div class="sub" style="margin:6px 0 12px;line-height:1.6">' + isiHtml + '</div>';
+      opsi.forEach(function (o, i) {
+        html += '<button class="' + o.kelas + '" data-i="' + i + '" style="width:100%;margin-top:8px">' + esc(o.label) + '</button>';
+      });
+      kotak.innerHTML = html;
+      wrap.appendChild(kotak);
+      document.body.appendChild(wrap);
+      Array.prototype.forEach.call(kotak.querySelectorAll('button[data-i]'), function (b) {
+        b.addEventListener('click', function () {
+          wrap.remove();
+          var o = opsi[Number(b.getAttribute('data-i'))];
+          selesai(o ? o.nilai : '');
+        });
+      });
+    });
+  }
+
+  // semua permintaan lewat /api → Apps Script
+  function panggil(action, payload) {
+    return fetch('/api', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: action, args: [payload || {}] })
+    })
+      .then(function (r) { return r.text(); })
+      .then(function (t) {
+        var d;
+        try { d = JSON.parse(t); } catch (e) { throw new Error('Jawaban server bukan data.'); }
+        if (!d.ok) throw new Error(d.pesan || d.error || 'Gagal');
+        var h = d.hasil || {};
+        if (h.success === false) throw new Error(h.message || 'Gagal');
+        return h;
+      });
+  }
+
+  /* ============================ MASUK ============================ */
+  function layarMasuk(pesan) {
+    $app.innerHTML =
+      '<header class="kop"><div class="kecil">Pondok Pesantren Darut Thalibin</div>' +
+      '<h1>Pengurus</h1><div class="baris"><span>Absensi &amp; keuangan</span>' +
+      '<a href="/">halaman depan</a></div></header>' +
+      '<div class="kartu"><label for="u">Nama atau username</label>' +
+      '<input id="u" type="text" placeholder="Contoh: Ridho" autocomplete="off" value="' + esc(state.nama) + '">' +
+      (pesan ? '<div class="sub" style="color:#a50e0e;margin-top:8px">' + esc(pesan) + '</div>' : '') +
+      '<button id="masuk" style="width:100%;margin-top:12px">Masuk</button>' +
+      '<div class="sub" style="margin-top:10px">Hanya pengurus terdaftar yang bisa mencatat. Santri memakai ' +
+      '<a href="/app/">portal santri</a>.</div></div>';
+
+    var input = document.getElementById('u');
+    function kirim() {
+      var nama = input.value.trim();
+      if (!nama) return;
+      var b = document.getElementById('masuk');
+      b.disabled = true; b.textContent = 'Memeriksa…';
+      masuk(nama);
+    }
+    document.getElementById('masuk').addEventListener('click', kirim);
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') kirim(); });
+    input.focus();
+  }
+
+  // loginUser dipanggil dengan argumen biasa (bukan payload objek)
+  function masuk(nama) {
+    fetch('/api', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'loginUser', args: [nama] })
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok) throw new Error(d.pesan || d.error);
+        var h = d.hasil || {};
+        if (!h.success) {
+          if (h.code === 'AMBIGUOUS_SANTRI') throw new Error('Nama itu cocok ke beberapa santri. Ini halaman pengurus — santri memakai portal santri.');
+          throw new Error(h.message || 'Gagal masuk');
+        }
+        if (h.accountType === 'SANTRI') throw new Error('Akun santri tidak bisa memakai halaman ini.');
+        state.token = h.sessionToken;
+        state.nama = h.nama || nama;
+        try {
+          localStorage.setItem('ppdt_sesi', state.token);
+          localStorage.setItem('ppdt_nama', state.nama);
+        } catch (e) {}
+        mulai();
+      })
+      .catch(function (e) { layarMasuk(e.message); });
+  }
+
+  /* ============================ KERANGKA ============================ */
+  function kerangka() {
+    $app.innerHTML =
+      '<header class="kop"><div class="kecil">Pondok Pesantren Darut Thalibin</div>' +
+      '<h1 id="kopJudul">Absensi</h1>' +
+      '<div class="baris"><span id="kopOrang"></span><a href="#" id="keluar">keluar</a></div></header>' +
+      '<div class="tab"><button id="tabAbsensi" class="aktif">Absensi</button>' +
+      '<button id="tabUang">Keuangan</button></div>' +
+      '<div id="isi"></div>';
+
+    document.getElementById('tabAbsensi').addEventListener('click', function () { pindah('absensi'); });
+    document.getElementById('tabUang').addEventListener('click', function () { pindah('keuangan'); });
+    document.getElementById('keluar').addEventListener('click', function (ev) {
+      ev.preventDefault();
+      try { localStorage.removeItem('ppdt_sesi'); localStorage.removeItem('ppdt_nama'); } catch (e) {}
+      state.token = null; layarMasuk('');
+    });
+  }
+
+  function pindah(tab) {
+    state.tab = tab;
+    document.getElementById('tabAbsensi').className = tab === 'absensi' ? 'aktif' : '';
+    document.getElementById('tabUang').className = tab === 'keuangan' ? 'aktif' : '';
+    document.getElementById('kopJudul').textContent = tab === 'absensi' ? 'Absensi' : 'Keuangan';
+    if (tab === 'absensi') muatHari(); else muatUang();
+  }
+
+  function mulai() {
+    kerangka();
+    document.getElementById('kopOrang').textContent = state.nama;
+    pindah(state.tab);
+  }
+
+  /* ============================ ABSENSI ============================ */
+  function muatHari() {
+    var isi = document.getElementById('isi');
+    isi.innerHTML = '<div class="kartu"><div class="tengah">Memuat absensi hari ini…</div></div>';
+    panggil('ABWEB_hariIni', { sessionToken: state.token })
+      .then(function (h) { state.hari = h.data; gambarHari(); })
+      .catch(function (e) { isi.innerHTML = '<div class="kartu"><div class="tengah">' + esc(e.message) + '</div></div>'; });
+  }
+
+  function gambarHari() {
+    var d = state.hari, h = [];
+    if (state.tglPilih !== d.tanggal) { state.tglPilih = d.tanggal; muatPilih(d.tanggal); }
+    h.push('<div class="kartu" style="padding:12px 14px"><div class="judul">' + esc(d.tanggalPanjang) + '</div>' +
+      '<div class="sub">' + d.kritis + ' perlu dibereskan · ' + d.saran + ' patut dilihat</div>' +
+      '<input id="cari" type="text" placeholder="Cari nama santri…" value="' + esc(state.cari) + '" style="margin-top:10px">' +
+      '<div class="sub" style="margin-top:6px"><b>H</b> hadir · <b>A</b> alpha · <b>I</b> izin — dihitung per aktivitas</div></div>');
+
+    if (!d.blok.length) {
+      h.push('<div class="kartu"><div class="tengah">Belum ada sesi yang dimulai hari ini.</div></div>');
+    }
+
+    d.blok.forEach(function (b, i) {
+      var kunci = b.kelompok + '|' + b.sesi;
+      var kelas = b.status === 'DITUTUP' || b.status === 'DINYATAKAN' ? ' tutup' : (b.status === 'TERLEWAT' || b.status === 'KOSONG' ? ' lewat' : '');
+      var chip = b.status === 'DITUTUP' ? '<span class="chip hijau">ditutup</span>'
+        : b.status === 'DINYATAKAN' ? '<span class="chip hijau">dinyatakan</span>'
+        : b.status === 'BERJALAN' ? '<span class="chip kuning">berjalan</span>'
+        : b.status === 'TERLEWAT' ? '<span class="chip merah">terlewat ' + b.menitLewat + ' mnt</span>'
+        : '<span class="chip abu">belum dimulai</span>';
+
+      var persen = b.jumlahSantri ? Math.round(b.tercatat / b.jumlahSantri * 100) : 0;
+
+      h.push('<div class="kartu sesi' + kelas + '">');
+      h.push('<div class="atas"><div><div class="judul">' + esc(b.kelompok) + ' · ' + esc(b.sesi) + '</div>' +
+        '<div class="sub">' + esc(b.jam) + (b.mode ? ' · cara ' + (b.mode === 'PANTAU' ? 'diamati' : 'dinyatakan') : '') + '</div></div>' +
+        '<div style="text-align:right">' + chip + '</div></div>');
+
+      h.push('<div class="meter"><i style="width:' + persen + '%"></i></div>');
+      h.push('<div class="sub">' + b.tercatat + ' dari ' + b.jumlahSantri + ' santri tercatat</div>');
+
+      h.push('<div class="akt">');
+      b.aktivitas.forEach(function (a) {
+        h.push('<span>' + esc(a.label) + ' <b>' + a.hadir + '</b>H' +
+          (a.alpha ? ' <b style="color:#a50e0e">' + a.alpha + '</b>A' : '') +
+          (a.izin ? ' ' + a.izin + 'I' : '') + '</span>');
+      });
+      h.push('</div>');
+
+      b.temuan.filter(function (t) { return t.tingkat === 'KRITIS'; }).forEach(function (t) {
+        h.push('<div class="temuan">✗ ' + esc(t.pesan) + '</div>');
+      });
+
+      // tombol catat
+      var sisa = b.belum.filter(function (s) {
+        return !state.cari || String(s.nama).toLowerCase().indexOf(state.cari.toLowerCase()) >= 0 ||
+          String(s.kamar || '').toLowerCase().indexOf(state.cari.toLowerCase()) >= 0;
+      }).sort(function (a, c) {
+        var ka = String(a.kamar || ''), kc = String(c.kamar || '');
+        if (ka !== kc) return ka < kc ? -1 : 1;
+        return String(a.nama) < String(c.nama) ? -1 : 1;
+      });
+
+      if (b.belum.length && b.status !== 'DITUTUP' && b.status !== 'DINYATAKAN') {
+        h.push('<div style="margin-top:10px"><div class="sub" style="margin-bottom:6px">' +
+          (sisa.length ? 'Belum tercatat — ketuk nama yang terlihat:' : 'Tidak ada nama yang cocok dengan pencarian.') + '</div>');
+        sisa.forEach(function (s) {
+          var aktif = (state.pilih[kunci] || {})[s.id];
+          h.push('<span class="nama' + (aktif ? ' pilih' : '') + '" data-sesi="' + esc(kunci) + '" data-id="' + esc(s.id) + '" data-nama="' + esc(s.nama) + '">' + esc(s.nama) + '</span>');
+        });
+        h.push('<div style="margin-top:10px;display:flex;gap:8px;">' +
+          '<button class="hijau" data-catat="' + esc(kunci) + '">' +
+            (Object.keys(state.pilih[kunci] || {}).length
+              ? 'Catat ' + Object.keys(state.pilih[kunci]).length + ' nama'
+              : 'Catat yang dipilih') + '</button>' +
+          '<button class="polos kecil" data-semua="' + esc(kunci) + '">Pilih semua</button>' +
+          '<button class="polos kecil" data-kosong="' + esc(kunci) + '">Kosongkan</button></div>');
+        h.push('</div>');
+      }
+
+      // aksi sesi
+      h.push('<div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">');
+      if (b.status === 'BERJALAN' || b.status === 'TERLEWAT') {
+        h.push('<button class="kecil" data-tutup="' + esc(kunci) + '">Tutup sesi</button>');
+      }
+      h.push('<button class="polos kecil" data-izin="' + esc(b.kelompok) + '">Catat izin</button>');
+      h.push('</div>');
+      h.push('</div>');
+    });
+
+    // validasi
+    h.push('<div class="kartu"><div class="judul">Validasi hari ini</div>');
+    if (d.validasi && d.validasi.length) {
+      d.validasi.forEach(function (v) {
+        h.push('<div class="sub" style="margin-top:4px">' + esc(v.kelompok) + ' ' + esc(v.sesi) + ' — ' + esc(v.status) + ' oleh ' + esc(v.oleh) + '</div>');
+      });
+      h.push('<button class="polos" id="validasi" style="width:100%;margin-top:10px">Periksa ulang &amp; sahkan lagi</button>');
+    } else {
+      h.push('<div class="sub" style="margin-top:4px">Belum disahkan. Pengesahan dicatat: siapa, jam, dan temuannya.</div>');
+      h.push('<button id="validasi" style="width:100%;margin-top:10px">Sahkan absen hari ini</button>');
+    }
+    h.push('<button class="polos" id="segarkan" style="width:100%;margin-top:8px">Segarkan</button></div>');
+
+    h.push('<footer>PPDT · data absensi V2 · <a href="/">halaman depan</a></footer>');
+    document.getElementById('isi').innerHTML = h.join('');
+
+    // pasang aksi
+    Array.prototype.forEach.call(document.querySelectorAll('.nama'), function (el) {
+      el.addEventListener('click', function () {
+        var k = el.getAttribute('data-sesi'), id = el.getAttribute('data-id');
+        state.pilih[k] = state.pilih[k] || {};
+        if (state.pilih[k][id]) delete state.pilih[k][id]; else state.pilih[k][id] = el.getAttribute('data-nama');
+        el.classList.toggle('pilih');
+        simpanPilih();
+      });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-semua]'), function (el) {
+      el.addEventListener('click', function () {
+        var k = el.getAttribute('data-semua');
+        state.pilih[k] = {};
+        Array.prototype.forEach.call(document.querySelectorAll('.nama[data-sesi="' + CSS.escape(k) + '"]'), function (n) {
+          state.pilih[k][n.getAttribute('data-id')] = n.getAttribute('data-nama');
+        });
+        simpanPilih();
+        gambarHari();
+      });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-kosong]'), function (el) {
+      el.addEventListener('click', function () {
+        state.pilih[el.getAttribute('data-kosong')] = {};
+        simpanPilih();
+        gambarHari();
+      });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-catat]'), function (el) {
+      el.addEventListener('click', function () { catat(el.getAttribute('data-catat')); });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-tutup]'), function (el) {
+      el.addEventListener('click', function () { tutup(el.getAttribute('data-tutup')); });
+    });
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-izin]'), function (el) {
+      el.addEventListener('click', function () { catatIzin(el.getAttribute('data-izin')); });
+    });
+
+    var kotakCari = document.getElementById('cari');
+    if (kotakCari) {
+      kotakCari.addEventListener('input', function () {
+        state.cari = kotakCari.value;
+        state.cariFokus = true;
+        gambarHari();
+      });
+      if (state.cariFokus) {
+        kotakCari.focus();
+        try { kotakCari.setSelectionRange(kotakCari.value.length, kotakCari.value.length); } catch (e) {}
+      }
+    }
+
+    document.getElementById('validasi').addEventListener('click', sahkan);
+    document.getElementById('segarkan').addEventListener('click', muatHari);
+  }
+
+  function catat(kunci) {
+    var pilih = state.pilih[kunci] || {};
+    var nama = Object.keys(pilih).map(function (k) { return pilih[k]; });
+    if (!nama.length) return kabar('Belum ada nama yang dipilih.', true);
+
+    var tombol = document.querySelector('[data-catat="' + kunci + '"]');
+    if (tombol && tombol.disabled) return;
+    if (tombol) { tombol.disabled = true; tombol.textContent = 'Mengirim…'; }
+
+    var bagian = kunci.split('|');
+    fetch('/api', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'ABWEB_catat', args: [{ sessionToken: state.token, nama: nama }] })
+    }).then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok || (d.hasil && d.hasil.success === false)) {
+          if (tombol) { tombol.disabled = false; tombol.textContent = 'Catat ' + nama.length + ' nama'; }
+          return kabar((d.hasil && d.hasil.message) || d.pesan || 'Gagal mencatat', true);
+        }
+        kabar(nama.length + ' nama dicatat (' + bagian[1] + ').');
+        state.pilih[kunci] = {};
+        simpanPilih();
+        muatHari();
+      })
+      .catch(function (e) {
+        if (tombol) { tombol.disabled = false; tombol.textContent = 'Catat ' + nama.length + ' nama'; }
+        kabar(e.message + ' — pilihanmu masih tersimpan, coba kirim lagi.', true);
+      });
+  }
+
+  function tutup(kunci) {
+    var b = (state.hari.blok || []).filter(function (x) { return x.kelompok + '|' + x.sesi === kunci; })[0];
+    if (!b) return;
+    var sisa = b.belum.length;
+
+    var isi = 'Ada <b>' + sisa + '</b> santri yang belum tercatat di ' + esc(b.kelompok) + ' ' + esc(b.sesi) + '.<br><br>' +
+      '<b>Dianggap tidak terlihat</b> → ' + sisa + ' santri dicatat <b>ALPHA</b>. Pakai kalau memang tidak ada di lokasi.<br><br>' +
+      '<b>Dianggap hadir (saya saksikan)</b> → ' + sisa + ' santri dicatat <b>HADIR</b>. ' +
+      'Pakai kalau semua terlihat tapi belum sempat diketuk. Namamu dicatat sebagai penyaksi.';
+
+    dialog('Tutup sesi ' + b.kelompok + ' · ' + b.sesi, isi, [
+      { label: 'Isi ALPHA (' + sisa + ' santri)', kelas: 'merah', nilai: 'PANTAU' },
+      { label: 'Isi HADIR — saya menyaksikan', kelas: 'hijau', nilai: 'NYATAKAN' },
+      { label: 'Batal', kelas: 'polos', nilai: '' }
+    ]).then(function (cara) {
+      if (!cara) return;
+      kabar('Menutup sesi…');
+      fetch('/api', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'ABWEB_tutup', args: [{
+          sessionToken: state.token, tanggal: state.hari.tanggal, sesi: b.sesi, cakupan: b.kelompok, mode: cara
+        }] })
+      }).then(function (r) { return r.json(); })
+        .then(function (d) {
+          if (!d.ok || (d.hasil && d.hasil.success === false)) return kabar((d.hasil && d.hasil.message) || 'Gagal menutup', true);
+          kabar('Sesi ' + b.kelompok + ' ' + b.sesi + ' ditutup (' + (cara === 'PANTAU' ? 'ALPHA' : 'HADIR') + ').');
+          muatHari();
+        })
+        .catch(function (e) { kabar(e.message, true); });
+    });
+  }
+
+  function catatIzin(kelompok) {
+    var nama = prompt('Nama santri yang izin (' + kelompok + '):', '');
+    if (!nama) return;
+    var jenis = prompt('Jenis izin: PULANG / SAKIT / KEGIATAN', 'PULANG');
+    if (!jenis) return;
+    var hari = prompt('Berapa hari? (1 = hanya sesi ini)', '1');
+    var alasan = prompt('Alasan singkat:', '');
+
+    fetch('/api', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'ABWEB_izin', args: [{
+        sessionToken: state.token, nama: nama, kategori: jenis.toUpperCase(),
+        hari: hari ? Number(hari) : 1, alasan: alasan || ''
+      }] })
+    }).then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok || (d.hasil && d.hasil.success === false)) return kabar((d.hasil && d.hasil.message) || 'Gagal', true);
+        kabar('Izin dicatat.');
+        muatHari();
+      })
+      .catch(function (e) { kabar(e.message, true); });
+  }
+
+  function sahkan() {
+    fetch('/api', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ action: 'ABWEB_validasi', args: [{
+        sessionToken: state.token, tanggal: state.hari.tanggal, setuju: true
+      }] })
+    }).then(function (r) { return r.json(); })
+      .then(function (d) {
+        var pesan = (d.hasil && d.hasil.message) || d.pesan || '';
+        if (!d.ok || (d.hasil && d.hasil.success === false)) {
+          var alasan = prompt(pesan + '\n\nKalau tetap mau disahkan, tulis alasannya:', '');
+          if (!alasan) return kabar('Tidak disahkan.', true);
+          return fetch('/api', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ action: 'ABWEB_validasi', args: [{
+              sessionToken: state.token, tanggal: state.hari.tanggal,
+              setuju: true, paksa: true, catatan: alasan
+            }] })
+          }).then(function (r) { return r.json(); }).then(function (d2) {
+            kabar((d2.hasil && d2.hasil.message) || 'Selesai', !(d2.ok && d2.hasil && d2.hasil.success !== false));
+            muatHari();
+          });
+        }
+        kabar(pesan);
+        muatHari();
+      })
+      .catch(function (e) { kabar(e.message, true); });
+  }
+
+  /* ============================ KEUANGAN ============================ */
+  function muatUang() {
+    document.getElementById('isi').innerHTML = '<div class="kartu"><div class="tengah">Memuat keuangan…</div></div>';
+    panggil('ABWEB_keuangan', { sessionToken: state.token })
+      .then(function (h) { state.uang = h.data; gambarUang(); })
+      .catch(function (e) {
+        document.getElementById('isi').innerHTML = '<div class="kartu"><div class="tengah">' + esc(e.message) + '</div></div>';
+      });
+  }
+
+  function gambarUang() {
+    var d = state.uang, r = d.ringkas, h = [];
+    h.push('<div class="kartu" style="padding:12px 14px"><div class="judul">Posisi sampai ' + esc(d.label) + '</div>' +
+      '<div class="sub">sisa = sisa awal + seluruh tagihan − seluruh pembayaran</div></div>');
+
+    h.push('<div class="kpi">' +
+      kotak('Kurang', r.kurang + ' santri', rp(r.totalKurang), '#a50e0e') +
+      kotak('Lebih', r.lebih + ' santri', rp(r.totalLebih), '#137333') +
+      kotak('Tagihan', rp(r.totalTagihan), r.jumlahSantri + ' santri', '#14476b') +
+      kotak('Diterima', rp(r.totalDiterima), r.lunas + ' lunas', '#1c6ea4') +
+      '</div>');
+
+    h.push('<div class="kartu"><div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:6px">');
+    [['semua', 'Semua'], ['KURANG', 'Kurang'], ['LEBIH', 'Lebih'], ['LUNAS', 'Lunas']].forEach(function (f) {
+      h.push('<button class="' + (state.saring === f[0] ? '' : 'polos') + ' kecil" data-saring="' + f[0] + '">' + f[1] + '</button>');
+    });
+    h.push('</div>');
+
+    var daftar = d.daftar.filter(function (x) {
+      if (state.saring === 'semua') return true;
+      if (state.saring === 'LUNAS') return x.status === 'LUNAS' || x.status === 'GRATIS';
+      return x.status === state.saring;
+    });
+
+    if (!daftar.length) {
+      h.push('<div class="tengah">Tidak ada santri pada saringan ini.</div>');
+    } else {
+      daftar.forEach(function (s) {
+        var w = s.status === 'LEBIH' ? '#137333' : (s.status === 'KURANG' ? '#a50e0e' : '#5f6368');
+        var ket = s.status === 'LEBIH' ? 'lebih ' + s.bulanDiMuka + ' bln'
+          : s.status === 'KURANG' ? 'kurang ' + s.bulanKurang + ' bln'
+          : 'lunas';
+        h.push('<div class="baris-daftar"><span>' + esc(s.nama) +
+          '<span class="sub" style="display:block">' + esc(s.kamar) + ' · ' + esc(ket) +
+          ' · dibayar ' + rp(s.bayar) + '</span></span>' +
+          '<span class="kanan" style="color:' + w + '">' + (s.sisa === 0 ? 'Rp 0' : rp(s.sisa)) + '</span></div>');
+      });
+    }
+    h.push('</div>');
+
+    h.push('<div class="kartu"><button class="polos" id="segarkanUang" style="width:100%">Segarkan</button></div>');
+    h.push('<footer>PPDT · angka dari SM_sisaSantri · <a href="/">halaman depan</a></footer>');
+    document.getElementById('isi').innerHTML = h.join('');
+
+    Array.prototype.forEach.call(document.querySelectorAll('[data-saring]'), function (el) {
+      el.addEventListener('click', function () { state.saring = el.getAttribute('data-saring'); gambarUang(); });
+    });
+    document.getElementById('segarkanUang').addEventListener('click', muatUang);
+  }
+
+  function kotak(label, angka, ket, warna) {
+    return '<div class="kartu"><div class="label">' + label + '</div>' +
+      '<div class="angka" style="color:' + warna + '">' + esc(angka) + '</div>' +
+      '<div class="sub">' + esc(ket) + '</div></div>';
+  }
+
+  /* ============================ JALAN ============================ */
+  // masuk dari pintu tunggal: /?masuk=Nama diteruskan ke sini, tidak perlu login dua kali
+  var qs = new URLSearchParams(location.search);
+  var namaMasuk = (qs.get('masuk') || '').trim();
+  var tokenMasuk = (qs.get('t') || '').trim();
+  if (tokenMasuk) { state.token = tokenMasuk; try { localStorage.setItem('ppdt_sesi', tokenMasuk); } catch (e) {} }
+  if (state.token) { mulai(); }
+  else if (namaMasuk) { state.nama = namaMasuk; masuk(namaMasuk); }
+  else { layarMasuk(''); }
+})();
+</script>
+</body>
+</html>
