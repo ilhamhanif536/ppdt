@@ -443,7 +443,10 @@
     fetch('/api', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ action: 'ABWEB_catat', args: [{ sessionToken: state.token, nama: nama }] })
+      body: JSON.stringify({ action: 'ABWEB_catat', args: [{
+        sessionToken: state.token, nama: nama,
+        tanggal: state.hari.tanggal, sesi: bagian[1], cakupan: bagian[0]
+      }] })
     }).then(function (r) { return r.json(); })
       .then(function (d) {
         if (!d.ok || (d.hasil && d.hasil.success === false)) {
@@ -621,6 +624,14 @@
   var namaMasuk = (qs.get('masuk') || '').trim();
   var tokenMasuk = (qs.get('t') || '').trim();
   if (tokenMasuk) { state.token = tokenMasuk; try { localStorage.setItem('ppdt_sesi', tokenMasuk); } catch (e) {} }
+  // ?embed=1 → dipakai di dalam portal admin (iframe tab Presensi): kop & footer disembunyikan
+  if ((new URLSearchParams(location.search)).get('embed') === '1') {
+    var gaya = document.createElement('style');
+    gaya.textContent = 'header.kop,footer{display:none!important}' +
+      '.wrap{padding-top:8px}';
+    document.head.appendChild(gaya);
+  }
+
   if (state.token) { mulai(); }
   else if (namaMasuk) { state.nama = namaMasuk; masuk(namaMasuk); }
   else { layarMasuk(''); }
