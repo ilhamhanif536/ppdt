@@ -92,7 +92,7 @@ const siteData = {
       anggota: [
         { jabatan: "Devisi SDM & Kurikulum", nama: "Auhadillah Azizi, S.Psi., M.Pi" },
         { jabatan: "Devisi Sarana Prasarana & Pemberdayaan Ekonomi", nama: "Dr. Ulfatun Nahdhiyah" },
-        { jabatan: "Devisi Humas", nama: "Shofiyun Nahdidah, S.Ag., M.H.I" },
+        { jabatan: "Devisi Humas", nama: "Shofiyun Nahdidlah, S.Ag., M.H.I" },
       ],
     },
     {
@@ -102,7 +102,7 @@ const siteData = {
         { jabatan: "Koordinator Pondok Putra", nama: "Muhammad Ridho Alfisyahri" },
         { jabatan: "Kesekretariatan", nama: "Ainul Muzammil" },
         { jabatan: "Keuangan", nama: "Muhammad Hanif" },
-        { jabatan: "Kominfo", nama: "Agus Salin" },
+        { jabatan: "Kominfo", nama: "Agus Salim" },
         { jabatan: "Keamanan", nama: "" },
         { jabatan: "Kebersihan", nama: "" },
         { jabatan: "Humas", nama: "" },
