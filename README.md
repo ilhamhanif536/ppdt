@@ -19,7 +19,7 @@ Website informatif statis untuk Pondok Pesantren Darut Thalibin Telang. Dibangun
 ## Identitas lembaga
 
 - Nama: **Darut Thalibin Telang**
-- SK KEMENKUMHAM RI: **AHU-0015579.AH.04.Tahun 2018**
+- SK KEMENKUMHAM RI: **AHU-0015579.AH.04. Tahun 2018**
 - NSP: **510235260222**
 
 ## Struktur proyek

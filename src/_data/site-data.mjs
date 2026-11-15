@@ -19,7 +19,7 @@ const siteData = {
   lokasiSingkat: "Telang · Kamal · Bangkalan",
   deskripsi:
     "Website resmi Darut Thalibin Telang, Kamal, Bangkalan. Informasi profil pondok, pendidikan, kegiatan santri, prestasi, berita, koperasi, dan organisasi.",
-  skBadanHukum: "AHU-0015579.AH.04.Tahun 2018",
+  skBadanHukum: "AHU-0015579.AH.04. Tahun 2018",
   nsp: "510235260222",
 
   // ---------- Kontak ----------
