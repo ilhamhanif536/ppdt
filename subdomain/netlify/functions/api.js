@@ -17,7 +17,7 @@
  *   GAS_KEY = hasil PGT_setKunciApi()
  */
 
-const AKSI_GET = ['dashboard', 'tes'];
+const AKSI_GET = ['dashboard', 'tes', 'alamat'];
 const POLA_TOKEN = /^[a-f0-9]{16,40}$/;
 const POLA_BULAN = /^\d{4}-\d{2}$/;
 const POLA_AKSI = /^[A-Za-z][A-Za-z0-9_]{2,48}$/;
@@ -141,6 +141,12 @@ exports.handler = async function (event) {
 
     if (AKSI_GET.indexOf(aksi) === -1) {
       return balas(400, { ok: false, error: 'aksi_tidak_dikenal', pesan: aksi });
+    }
+
+    // alamat web app GAS, dipakai /app/ untuk membingkai aplikasi aslinya
+    // (tidak menyertakan kunci API — kunci hanya dipakai di server)
+    if (aksi === 'alamat') {
+      return balas(200, { ok: true, url: String(process.env.GAS_URL || '') });
     }
 
     if (aksi === 'tes') {

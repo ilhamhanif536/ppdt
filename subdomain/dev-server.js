@@ -78,6 +78,9 @@ const server = http.createServer((req, res) => {
     if (req.method === 'GET') {
       const aksi = u.searchParams.get('action') || 'dashboard';
       if (aksi === 'tes') return kirimJson(res, 200, { ok: true, pesan: 'API tiruan hidup' });
+      if (aksi === 'alamat') {
+        return kirimJson(res, 200, { ok: true, url: process.env.GAS_URL || '' });
+      }
       return kirimJson(res, 200, dataDasbor(u.searchParams.get('bulan')));
     }
     if (req.method === 'POST') {
