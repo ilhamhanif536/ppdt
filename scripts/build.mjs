@@ -280,6 +280,10 @@ if (existsSync(path.join(root, "public", "favicon.svg"))) {
 if (existsSync(path.join(root, "public", "data"))) {
   await cp(path.join(root, "public", "data"), path.join(out, "data"), { recursive: true });
 }
+// Cloudflare Pages: copy _headers
+if (existsSync(path.join(root, "public", "_headers"))) {
+  await cp(path.join(root, "public", "_headers"), path.join(out, "_headers"));
+}
 
 // fingerprint CSS & JS
 const css = await readFile(path.join(out, "assets", "site.css"), "utf8");
