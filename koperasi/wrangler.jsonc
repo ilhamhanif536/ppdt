@@ -1,0 +1,8 @@
+{
+  // Konfigurasi Cloudflare Workers Static Assets untuk koperasi.darutthalibin.web.id
+  "name": "koperasi-darutthalibin",
+  "compatibility_date": "2026-11-28",
+  "assets": {
+    "directory": "./public"
+  }
+}
