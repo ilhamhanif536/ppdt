@@ -1,0 +1,20 @@
+{
+  "namaResmi": "Koperasi Konsumen Darut Thalibin Telang Bangkalan",
+  "namaSingkat": "Koperasi Darut Thalibin",
+  "kedudukan": "Jl. Masjid Telang Indah, RT.02/RW.03, Desa Telang, Kecamatan Kamal, Kabupaten Bangkalan, Jawa Timur",
+  "wilayah": "Lintas Kabupaten/Kota dalam Provinsi Jawa Timur",
+  "jenis": "Konsumen",
+  "polaPengelolaan": "Konvensional",
+  "kontak": {
+    "whatsapp": "628179284789",
+    "teleponDisplay": "0817-9284-789",
+    "email": "kopontrendttb@gmail.com",
+    "jamLayanan": "Senin – Sabtu, 08.00 – 17.00 WIB"
+  },
+  "simpanan": {
+    "pokok": 50000,
+    "wajib": 25000,
+    "keteranganPokok": "Dibayarkan 1× saat mendaftar sebagai anggota baru",
+    "keteranganWajib": "Simpanan berkala anggota sesuai Anggaran Dasar"
+  }
+}
