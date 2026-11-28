@@ -1,0 +1,66 @@
+name: Cek Prestasi Baru Instagram
+
+on:
+  schedule:
+    # Berjalan otomatis setiap hari Minggu pukul 20:00 WIB (13:00 UTC)
+    - cron: "0 13 * * 0"
+  workflow_dispatch:
+    # Bisa dijalankan manual kapan saja lewat tab Actions -> Run workflow
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  cek-ig:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repositori
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Siapkan Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Cek 10 postingan terbaru @darutthalibin via Apify
+        env:
+          APIFY_TOKEN: ${{ secrets.APIFY_TOKEN }}
+          IG_LIMIT: "10"
+          PR_BODY_FILE: /tmp/pr-prestasi-body.md
+        run: node scripts/cek-ig-prestasi.mjs
+
+      - name: Uji build jika ada perubahan data
+        id: check
+        run: |
+          if git diff --quiet src/_data/prestasi.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Tidak ada perubahan pada prestasi.json."
+          else
+            npm run build
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Buat atau perbarui Draft Pull Request
+        if: steps.check.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          BRANCH="bot/update-prestasi-ig"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout -B "$BRANCH"
+          git add src/_data/prestasi.json
+          git commit -m "chore(prestasi): tambah draf prestasi baru dari Instagram"
+          git push -f origin "$BRANCH"
+
+          EXISTING_PR=$(gh pr list --head "$BRANCH" --state open --json number --jq '.[0].number')
+          if [ -n "$EXISTING_PR" ]; then
+            gh pr edit "$EXISTING_PR" --body-file /tmp/pr-prestasi-body.md
+            echo "PR #$EXISTING_PR berhasil diperbarui."
+          else
+            gh pr create               --draft               --base main               --head "$BRANCH"               --title "Draf update prestasi santri dari Instagram"               --body-file /tmp/pr-prestasi-body.md
+          fi

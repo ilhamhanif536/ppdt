@@ -6,6 +6,7 @@
   "scripts": {
     "build": "node scripts/build.mjs",
     "data:majmu": "node scripts/fetch-majmu-data.mjs",
-    "data:ratib": "node scripts/fetch-ratib-haddad.mjs"
+    "data:ratib": "node scripts/fetch-ratib-haddad.mjs",
+    "cek:prestasi": "node scripts/cek-ig-prestasi.mjs"
   }
 }

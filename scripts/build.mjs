@@ -13,6 +13,13 @@ const root = process.cwd();
 const src = path.join(root, "src");
 const out = path.join(root, "dist");
 
+// Data prestasi santri dipisah ke JSON tersendiri agar mudah diedit & disinkronkan otomatis
+const prestasiFile = path.join(src, "_data", "prestasi.json");
+const prestasiData = existsSync(prestasiFile)
+  ? JSON.parse(await readFile(prestasiFile, "utf8"))
+  : [];
+
+
 /* ---------------------------------- utils --------------------------------- */
 const esc = (s = "") =>
   String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
@@ -257,7 +264,82 @@ function parseMeta(html, file) {
   }
 }
 
+
+function renderPrestasi() {
+  const list = (prestasiData || []).slice().sort((a, b) => {
+    const da = String(a.tanggal || a.tahun || "");
+    const db = String(b.tanggal || b.tahun || "");
+    return db.localeCompare(da);
+  });
+  if (!list.length) {
+    return `<div class="empty-state"><strong>Arsip prestasi sedang dalam penyiapan.</strong><br>Daftar pencapaian santri akan diterbitkan secara resmi melalui halaman ini setelah data dan dokumentasi selesai dikumpulkan.</div>`;
+  }
+
+  const years = [...new Set(list.map((p) => String(p.tahun)).filter(Boolean))].sort((a, b) => b.localeCompare(a));
+  const totalInt = list.filter((p) => /internasional/i.test(p.tingkat || "")).length;
+  const totalNas = list.filter((p) => /^nasional$/i.test((p.tingkat || "").trim())).length;
+  const totalSantri = new Set(
+    list.map((p) => (p.nama || "").split("(")[0].replace(/^Gus\s+/i, "").trim().toLowerCase())
+  ).size;
+
+  const statsHtml = `<div class="prestasi-stats">
+    <div class="prestasi-stat"><strong>${list.length}</strong><span>Total Capaian</span></div>
+    <div class="prestasi-stat prestasi-stat--gold"><strong>${totalInt}</strong><span>Internasional</span></div>
+    <div class="prestasi-stat"><strong>${totalNas}</strong><span>Nasional</span></div>
+    <div class="prestasi-stat"><strong>${totalSantri}</strong><span>Santri Berprestasi</span></div>
+  </div>`;
+
+  const filterButtons = [
+    `<button type="button" class="prestasi-pill is-active" data-prestasi-year="all" aria-pressed="true">Semua (${list.length})</button>`,
+    ...years.map((y) => {
+      const c = list.filter((p) => String(p.tahun) === y).length;
+      return `<button type="button" class="prestasi-pill" data-prestasi-year="${esc(y)}" aria-pressed="false">${esc(y)} (${c})</button>`;
+    }),
+  ].join("");
+
+  const filterBar = `<div class="prestasi-filters" role="group" aria-label="Filter prestasi berdasarkan tahun" data-prestasi-filters>${filterButtons}</div>`;
+
+  const badgeClass = (tingkat = "") => {
+    if (/internasional/i.test(tingkat)) return "prestasi-badge prestasi-badge--gold";
+    if (/nasional/i.test(tingkat)) return "prestasi-badge prestasi-badge--green";
+    return "prestasi-badge";
+  };
+
+  const groupsHtml = years
+    .map((y) => {
+      const items = list.filter((p) => String(p.tahun) === y);
+      const cards = items
+        .map((p) => {
+          const igLink = p.sumberIg
+            ? `<a class="prestasi-link" href="${esc(p.sumberIg)}" target="_blank" rel="noopener">Dokumentasi Instagram <span aria-hidden="true">↗</span></a>`
+            : "";
+          return `<article class="prestasi-card" data-year-item="${esc(y)}">
+            <div class="prestasi-meta">
+              <span class="${badgeClass(p.tingkat)}">${esc(p.tingkat || "Prestasi")}</span>
+              ${p.kategori ? `<span class="prestasi-cat">${esc(p.kategori)}</span>` : ""}
+            </div>
+            <h3 class="prestasi-title">${esc(p.capaian)}</h3>
+            <p class="prestasi-name">${esc(p.nama)}</p>
+            <p class="prestasi-event">${esc(p.kompetisi)}</p>
+            <div class="prestasi-foot">
+              <span class="prestasi-year">${esc(p.tahun)}</span>
+              ${igLink}
+            </div>
+          </article>`;
+        })
+        .join("");
+      return `<div class="prestasi-group" data-prestasi-group="${esc(y)}">
+        <div class="org-head"><h2>Tahun ${esc(y)}</h2><p>${items.length} capaian santri terdokumentasi pada tahun ${esc(y)}.</p></div>
+        <div class="prestasi-grid">${cards}</div>
+      </div>`;
+    })
+    .join("");
+
+  return `${statsHtml}${filterBar}<div class="prestasi-groups">${groupsHtml}</div>`;
+}
+
 const RENDERERS = {
+  PRESTASI: renderPrestasi,
   ORGANISASI: renderOrgSections,
   JADWAL: renderJadwal,
   KONTAK_ITEMS: renderKontakItems,

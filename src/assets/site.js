@@ -93,3 +93,25 @@ if ("IntersectionObserver" in window && reveals.length) {
 document.querySelectorAll("[data-year]").forEach((node) => {
   node.textContent = new Date().getFullYear();
 });
+
+
+// ---------- Filter tahun pada halaman Prestasi ----------
+const prestasiFilterWrap = document.querySelector("[data-prestasi-filters]");
+if (prestasiFilterWrap) {
+  const pills = prestasiFilterWrap.querySelectorAll("[data-prestasi-year]");
+  const groups = document.querySelectorAll("[data-prestasi-group]");
+  pills.forEach((pill) => {
+    pill.addEventListener("click", () => {
+      const target = pill.getAttribute("data-prestasi-year");
+      pills.forEach((b) => {
+        const active = b === pill;
+        b.classList.toggle("is-active", active);
+        b.setAttribute("aria-pressed", String(active));
+      });
+      groups.forEach((g) => {
+        const show = target === "all" || g.getAttribute("data-prestasi-group") === target;
+        g.classList.toggle("is-hidden", !show);
+      });
+    });
+  });
+}

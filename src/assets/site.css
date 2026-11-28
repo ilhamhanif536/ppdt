@@ -631,3 +631,62 @@ a.card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color
   .timeline-dot{left:-28px}
   .map-wrap iframe{height:300px}
 }
+
+
+/* ---------- Prestasi Santri ---------- */
+.prestasi-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:28px;
+}
+.prestasi-stat{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+  padding:20px 22px;box-shadow:var(--shadow-sm);display:flex;flex-direction:column;gap:4px;
+}
+.prestasi-stat strong{font-size:1.75rem;font-weight:800;color:var(--green-deep);line-height:1.1}
+.prestasi-stat span{font-size:.82rem;font-weight:600;color:var(--muted)}
+.prestasi-stat--gold{background:var(--gold-tint);border-color:#E7D4A3}
+.prestasi-stat--gold strong{color:var(--gold-deep)}
+
+.prestasi-filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:36px}
+.prestasi-pill{
+  padding:9px 18px;border-radius:999px;font-size:.86rem;font-weight:700;
+  color:var(--green-ink);background:#fff;border:1.5px solid var(--line);
+  transition:background .2s ease,color .2s ease,border-color .2s ease;
+}
+.prestasi-pill:hover{border-color:var(--green);color:var(--green-600)}
+.prestasi-pill.is-active{background:var(--green);color:#fff;border-color:var(--green);box-shadow:0 6px 16px rgba(46,158,107,.24)}
+
+.prestasi-group{margin-bottom:46px}
+.prestasi-group:last-child{margin-bottom:0}
+.prestasi-group.is-hidden{display:none}
+.prestasi-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.prestasi-card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:24px 24px 20px;box-shadow:var(--shadow-sm);
+  display:flex;flex-direction:column;gap:8px;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.prestasi-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md)}
+.prestasi-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-bottom:2px}
+.prestasi-badge{
+  display:inline-flex;align-items:center;font-size:.74rem;font-weight:800;
+  letter-spacing:.04em;text-transform:uppercase;padding:4px 11px;border-radius:999px;
+  background:var(--tint-2);color:var(--muted);border:1px solid var(--line);
+}
+.prestasi-badge--green{background:var(--tint);color:var(--green-deep);border-color:#CFE6DA}
+.prestasi-badge--gold{background:var(--gold-tint);color:var(--gold-deep);border-color:#E7D4A3}
+.prestasi-cat{font-size:.78rem;font-weight:600;color:var(--muted)}
+.prestasi-title{font-size:1.05rem;font-weight:800;color:var(--green-ink);line-height:1.38}
+.prestasi-name{font-size:.94rem;font-weight:700;color:var(--green-600)}
+.prestasi-event{font-size:.9rem;color:#33493E;line-height:1.55;flex:1}
+.prestasi-foot{
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:8px;padding-top:12px;border-top:1px dashed var(--line);font-size:.82rem;
+}
+.prestasi-year{font-weight:700;color:var(--muted)}
+.prestasi-link{font-weight:700;color:var(--green-600)}
+.prestasi-link:hover{text-decoration:underline;text-underline-offset:3px}
+
+@media (max-width:900px){
+  .prestasi-stats{grid-template-columns:repeat(2,1fr)}
+  .prestasi-grid{grid-template-columns:1fr}
+}
